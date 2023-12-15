@@ -52,7 +52,7 @@ public class Main {
                                 6 --> To display Customers of a specific Coach.
                                 7 --> To display Gym Income in a specific month.
                                 8 --> To display Coaches Sorted Descending.
-                                9 --> Back.
+                                9 --> To back.
                                 ------------------------------------------------------------------""");
                         choice = input.nextInt();
                         if (choice == 1) { // to add
@@ -63,7 +63,7 @@ public class Main {
                                         1 --> To add a Coach.
                                         2 --> To add a Customer.
                                         3 --> To add an Equipment.
-                                        4 --> back
+                                        4 --> To back.
                                         -----------------------------""");
                                 choice = input.nextInt();
                                 if (choice == 1) { // To add a Coach.
@@ -71,6 +71,7 @@ public class Main {
                                         ourGym.getAdmin().addCoach(ourGym.getCoaches());
                                         System.out.print("Do you want to add another Coach (Y/N)? ");
                                         repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if (choice == 2) { // To add a Customer.
@@ -78,6 +79,7 @@ public class Main {
                                         ourGym.getAdmin().addCustomer(ourGym.getCustomers());
                                         System.out.print("Do you want to add another Customer (Y/N)? ");
                                         repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if (choice == 3) { // To add an Equipment.
@@ -85,6 +87,7 @@ public class Main {
                                         ourGym.getAdmin().addEquipment(ourGym.getEquipments());
                                         System.out.print("Do you want to add another Equipment (Y/N)? ");
                                         repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if(choice==4){
@@ -97,6 +100,7 @@ public class Main {
                                 }
                                 System.out.print("Do you want to add another one/thing (Y/N)? ");
                                 repeat = input.next().charAt(0);
+                                System.out.println("--------------------------------------------------");
                                 if (repeat != 'y' && repeat != 'Y') {
                                     break;
                                 }
@@ -107,36 +111,50 @@ public class Main {
                                 System.out.println("""
                                         Press:
                                         ------
-                                        1 --> To delete a Coach."
-                                        2 --> To delete a Customer."
-                                        3 --> To delete an Equipment."
-                                        4 --> Back
+                                        1 --> To delete a Coach.
+                                        2 --> To delete a Customer.
+                                        3 --> To delete an Equipment.
+                                        4 --> To back.
                                         ------------------------------""");
                                 choice = input.nextInt();
-                                switch (choice) {
-                                    case 1: // To delete a Coach.
-                                        ourGym.getAdmin().deleteCoach(ourGym.getCoaches());
-                                        break;
-                                    case 2: // To delete a Customer.
-                                        ourGym.getAdmin().deleteCustomer(ourGym.getCustomers());
-                                        break;
-                                    case 3: // To delete an Equipment.
-                                        ourGym.getAdmin().deleteEquipment(ourGym.getEquipments());
-                                        break;
-                                    case 4:
-                                        break;
-                                    default:
-                                        invalidMsg();
-                                        continue;
-//                                        break;
+                                if (choice == 4) {
+                                    break;
                                 }
-                                System.out.print("Do you want to delete another one/thing (y/n)? ");
+                                if (choice == 1) { // To delete a Coach.
+                                    do {
+                                        ourGym.getAdmin().deleteCoach(ourGym.getCoaches());
+                                        System.out.print("Do you want to delete another Coach (Y/N)? ");
+                                        repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
+                                    } while (repeat == 'y' || repeat == 'Y');
+                                }
+                                else if (choice == 2) { // To delete a Customer.
+                                    do {
+                                        ourGym.getAdmin().deleteCustomer(ourGym.getCustomers());
+                                        System.out.print("Do you want to delete another Customer (Y/N)? ");
+                                        repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
+                                    } while (repeat == 'y' || repeat == 'Y');
+                                }
+                                else if (choice == 3) { // To delete an Equipment.
+                                    do {
+                                        ourGym.getAdmin().deleteEquipment(ourGym.getEquipments());
+                                        System.out.print("Do you want to delete another Equipment (Y/N)? ");
+                                        repeat = input.next().charAt(0);
+                                        System.out.println("--------------------------------------------------");
+                                    } while (repeat == 'y' || repeat == 'Y');
+                                }
+                                else {
+                                    invalidMsg();
+                                    continue;
+                                }
+                                System.out.print("Do you want to delete another one/thing (Y/N)? ");
                                 repeat = input.next().charAt(0);
+                                System.out.println("-----------------------------------------------------");
                                 if (repeat != 'y' && repeat != 'Y') {
                                     break;
                                 }
                             }
-//                            break;
                         }
                         else if (choice == 3) { // to edit
                             while (true) {
@@ -146,7 +164,7 @@ public class Main {
                                         1 --> To edit a Coach.
                                         2 --> To edit a Customer.
                                         3 --> To edit an Equipment.
-                                        4 --> Back.
+                                        4 --> To back.
                                         ----------------------------""");
                                 choice = input.nextInt();
                                 if (choice == 4){
@@ -155,31 +173,34 @@ public class Main {
                                 if (choice == 1) { // To edit a Coach.
                                     do {
                                         ourGym.getAdmin().editCoach(ourGym.getCoaches());
-                                        System.out.println("Do you want to edit another Coach (Y/N)?");
+                                        System.out.print("Do you want to edit another Coach (Y/N)?");
                                         repeat = input.next().charAt(0);
+                                        System.out.print("----------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if (choice == 2) { // To edit a Customer.
                                     do {
                                         ourGym.getAdmin().editCustomer(ourGym.getCustomers());
-                                        System.out.println("Do you want to edit another Customer (Y/N)?");
+                                        System.out.print("Do you want to edit another Customer (Y/N)?");
                                         repeat = input.next().charAt(0);
+                                        System.out.print("----------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if (choice == 3) { // To edit an Equipment.
                                     do {
                                         ourGym.getAdmin().editEquipment(ourGym.getEquipments());
-                                        System.out.println("Do you want to edit another Coach (Y/N)?");
+                                        System.out.print("Do you want to edit another Coach (Y/N)?");
                                         repeat = input.next().charAt(0);
+                                        System.out.println("----------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else {
                                     invalidMsg();
                                     continue;
                                 }
-                                System.out.println("--------------------------------------------------");
                                 System.out.print("Do you want to edit another one/thing (Y/N)? ");
                                 repeat = input.next().charAt(0);
+                                System.out.println("----------------------------------------------");
                                 if (repeat != 'y' && repeat != 'Y') {
                                     break;
                                 }
@@ -254,10 +275,7 @@ public class Main {
                         }
                     }
                 }
-
                 else {
-                    System.out.println("You are not an admin!");
-                    System.out.println("-----------------------------");
                     continue;
                 }
                 System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
@@ -281,6 +299,9 @@ public class Main {
                             3 --> Back.
                             -------------------------------------------------""");
                     choice= input.nextInt();
+                    if (choice==3) {
+                        break;
+                    }
                     if (choice==1){
                         ourGym.signUpCoach();
                         login = true;
@@ -301,11 +322,14 @@ public class Main {
                                             -------
                                             1 --> To show a list of all your customers.
                                             2 --> To get the In-Body history of any your customers.
-                                            3 --> To get all the details of a customer (Accroding his/her Name).
+                                            3 --> To get all the details of a customer (According his/her Name).
                                             4 --> To show a list of all his female/male customers.
+                                            5 --> To back.
                                             ----------------------------------------------------------------------""");
                                     choice = input.nextInt();
-                                    //
+                                    if (choice == 5){
+                                        break;
+                                    }
                                     if (choice == 1) { //To show a list of all your customers.
                                         ourGym.getCoaches().get(coachIndex).displayCustomers();
                                     }
@@ -314,6 +338,7 @@ public class Main {
                                             ourGym.getCoaches().get(coachIndex).displayInBodyHistory();
                                             System.out.print("Do you want to show the In-Body History of another customer (Y/N)? ");
                                             repeat = input.next().charAt(0);
+                                            System.out.println("----------------------------------------------------------------");
                                         } while (repeat == 'y' || repeat == 'Y');
                                     }
                                     else if (choice == 3) { //  To get all the details of a customer (Accroding his/her Name).
@@ -321,6 +346,7 @@ public class Main {
                                             ourGym.getCoaches().get(coachIndex).displayCustomerAccrodingName();
                                             System.out.print("Do you want to show the details of another customer (Y/N)? ");
                                             repeat = input.next().charAt(0);
+                                            System.out.println("--------------------------------------------------------------");
                                         } while (repeat == 'y' || repeat == 'Y');
                                     }
                                     else if (choice == 4) { // To show a list of all his female/male customers.
@@ -330,9 +356,6 @@ public class Main {
                                             repeat = input.next().charAt(0);
                                         } while (repeat == 'y' || repeat == 'Y');
                                     }
-    //                                else if (choice==5) {
-    //                                    main();
-    //                                }
                                     else {
                                         invalidMsg();
                                         continue;
@@ -347,22 +370,23 @@ public class Main {
                                         choice = input.nextInt();
                                         if (choice == 1) { // To do another operation.
                                             break;
-                                        } else if (choice == 2) { // To Log Out.
+                                        }
+                                        else if (choice == 2) { // To Log Out.
                                             ourGym.logOut();
                                             break;
-                                        } else {
+                                        }
+                                        else {
                                             Main.invalidMsg();
                                             continue;
                                         }
                                     }
-                                    if (choice == 1){
-                                        continue;
-                                    }
-                                    else{
+                                    if (choice == 2){
                                         break;
                                     }
                                 }
-    //                            break;
+                                if (choice == 2){
+                                    break;
+                                }
                             }
                             else {
                                 ourGym.signUpCoach();
@@ -393,19 +417,7 @@ public class Main {
                             break;
                         }
                     }
-                    else if (choice==3) {
-                        break;
-                    }
                 }
-//                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
-//                repeat = input.next().charAt(0);
-//                if (repeat!='y'&& repeat!='Y'){
-//                    continue;
-//                }
-//                else {
-//                    ourGym.logOut();
-//                    break;
-//                }
             }
             else if (choice == 3) { // If the user is a Customer.
                 while (true) {
@@ -426,11 +438,14 @@ public class Main {
                         while (true){
                             int customerIndex = ourGym.logInCustomer();
                             if(ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()){
-                                System.out.println("You have to subscribe first!");
-                                System.out.println("-------------------------------------------------");
+                                System.out.println("""
+                                        ------------------------
+                                        You a new Customer!!
+                                        Please, Subscribe First.
+                                        ------------------------""");
                                 ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
                                 ourGym.getCustomers().get(customerIndex).addInBody();
-                                continue;
+//                                continue;
                             }
                             if (customerIndex != -1 && !ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()) {
                             while (true) {
@@ -458,6 +473,7 @@ public class Main {
                                         ourGym.getCustomers().get(customerIndex).displayInBodyInfoAtDate();
                                         System.out.print("Do you want to show your In-Body in another date (Y/N)? ");
                                         repeat = input.next().charAt(0);
+                                        System.out.println("---------------------------------------------------------");
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
                                 else if (choice == 5) { // To know the kilos that you need to be reduced.
@@ -487,15 +503,12 @@ public class Main {
                                         continue;
                                     }
                                 }
-                                if (choice == 1){
-                                    continue;
-                                }
-                                else{
+                                if (choice == 2){
                                     break;
                                 }
                             }
-                            break;
-                        }
+                                break;
+                            }
                             else {
                                 ourGym.signUpCustomer();
                                 continue;
@@ -510,15 +523,6 @@ public class Main {
                         continue;
                     }
                 }
-//                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
-//                repeat = input.next().charAt(0);
-//                if (repeat!='y'&& repeat!='Y'){
-//                    continue;
-//                }
-//                else {
-//                    ourGym.logOut();
-//                    break;
-//                }
             }
             else{
                 invalidMsg();
@@ -530,7 +534,10 @@ public class Main {
                 continue;
             }
             else {
-                ourGym.logOut();
+                System.out.println("""
+                -----------------------------------
+                Thank You :)
+                -----------------------------------""");
                 break;
             }
         }

@@ -74,10 +74,13 @@ public class Gym {
             reader = new BufferedReader(new FileReader(file));
             while((line2 = reader.readLine()) != null) {
                 String[] row = line2.split(",");
+
                 Subscription newSubscription=new Subscription();
                 MembershipPlan newMembershipPlan= new MembershipPlan();
+
                 newSubscription.setCoachId(Integer.parseInt(row[0]));
                 newSubscription.setCustomerId(Integer.parseInt(row[1]));
+
                 newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
                 newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
                 newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
@@ -192,6 +195,9 @@ public class Gym {
         int id;
         String password;
         int customerIndex = -1, count = 0;
+        System.out.println("""
+                Enter your information to Sign Up:
+                -----------------------------------""");
         while (true) {
             System.out.print("Enter your ID: ");
             id = input.nextInt();
@@ -216,7 +222,8 @@ public class Gym {
                            INVALID ID!!
                            Please, try again.
                            ------------------""");
-            } else {
+            }
+            else {
                 System.out.print("Enter your Password: ");
                 password = input.next();
                 if (password.equals(customers.get(customerIndex).getPassword())) {
@@ -224,7 +231,6 @@ public class Gym {
                                        -------------------------------------------
                                        Your login has been completed successfully.
                                        -------------------------------------------""");
-//                    customer= customers.get(customerIndex);
                     return customerIndex;
                 }
                 else {
@@ -240,7 +246,7 @@ public class Gym {
                     System.out.println("""
                            -------------------
                            INVALID PASSWORD!!
-                           Please, try again.
+                           PLEASE, try again.
                            -------------------""");
                 }
             }
@@ -254,8 +260,6 @@ public class Gym {
         System.out.println("""
                 Enter your information to Sign Up:
                 -----------------------------------""");
-
-
         while (true) {
             System.out.print("Enter your Email: ");
             newCoach.setEmail(input.next());
@@ -266,16 +270,15 @@ public class Gym {
                 newCoach.setName(input.nextLine());
                 System.out.print("Enter your Password: ");
                 newCoach.setPassword(input.nextLine());
-                System.out.print("Enter your Gender (M/F): ");
                 while (true) {
+                    System.out.print("Enter your Gender (M/F): ");
                     try {
                         newCoach.setGender(input.next().charAt(0));
                         if (newCoach.getGender() != 'F' && newCoach.getGender() != 'f' && newCoach.getGender() != 'M' && newCoach.getGender() != 'm') {
                             throw new IllegalArgumentException("""
                                     -----------------------
                                     PLEASE, ENTER F OR M!!
-                                    -----------------------
-                                    Enter your Gender: """
+                                    -----------------------"""
                             );
                         }
                         break;
@@ -301,15 +304,15 @@ public class Gym {
                             ------------------------------------------------
                             Please, Log-In to can access your functionality.
                             ------------------------------------------------""");
-
-
-                } else {
+                }
+                else {
                     System.out.println("""
                             You have already an Account!!
                             Please, Log-In.""");
                 }
           break;
-            } else {
+            }
+            else {
                 System.out.println("""
                         ------------------
                         INVALID EMAIL!!
@@ -432,69 +435,20 @@ public class Gym {
             newCustomer.setEmail(input.next());
             input.nextLine();
             if (newCustomer.getEmail().indexOf('@') > 0) {
-//                System.out.print("Enter the Password of the new customer: ");
-//                input.nextLine();
-//                newCustomer.setPassword(input.nextLine());
-//                System.out.print("Enter the Gender of the new customer: ");
-//                while (true) {
-//
-//                    try {
-//                        newCustomer.setGender(input.next().charAt(0));
-//                        if (newCustomer.getGender()!='F'&&newCustomer.getGender()!='f'&&newCustomer.getGender()!='M'&&newCustomer.getGender()!='m') {
-//                            throw new IllegalArgumentException("""
-//                                                       -----------------------
-//                                                       PLEASE, ENTER F OR M!!
-//                                                       -----------------------
-//                                                       Enter your Gender:
-//                                                       """
-//
-//                            );
-//
-//                        }
-//                        break;
-//                    } catch (IllegalArgumentException e) {
-//                        System.err.println(e.getMessage());
-//                    }
-//                }
-//                System.out.print("Enter the Address of the new customer: ");
-//                input.nextLine();
-//                newCustomer.setAddress(input.nextLine());
-//                System.out.print("Enter the Phone Number of the new customer: ");
-//                newCustomer.setPhoneNumber(input.next());
-//                customers.add(newCustomer);
-//                System.out.println("""
-//                               Congratulation!!
-//                               This Customer has been added successfuly.
-//                               -----------------------------------------""");
-//                System.out.println("And his/her ID is: " + newCustomer.getID());
-//                System.out.println("----------------------------------------------------");
-//                break;
-//            } else {
-//                System.out.println("""
-//                                   ------------------
-//                                   INVALID EMAIL!!
-//                                   PLEASE, try again.
-//                                   ------------------""");
-//            }
-
                 System.out.print("Enter your Name: ");
                 newCustomer.setName(input.nextLine());
 
                 System.out.print("Enter your Password: ");
                 newCustomer.setPassword(input.nextLine());
-                System.out.print("Enter your Gender: ");
                 while (true) {
-
+                System.out.print("Enter your Gender: ");
                     try {
                         newCustomer.setGender(input.next().charAt(0));
                         if (newCustomer.getGender() != 'F' && newCustomer.getGender() != 'f' && newCustomer.getGender() != 'M' && newCustomer.getGender() != 'm') {
                             throw new IllegalArgumentException("""
                                     -----------------------
                                     PLEASE, ENTER F OR M!!
-                                    -----------------------
-                                    Enter your Gender: 
-                                    """
-
+                                    -----------------------"""
                             );
 
                         }
@@ -503,8 +457,6 @@ public class Gym {
                         System.err.println(e.getMessage());
                     }
                 }
-
-
                 System.out.print("Enter your Address: ");
                 newCustomer.setAddress(input.nextLine());
                 input.nextLine();
@@ -521,7 +473,8 @@ public class Gym {
                     System.out.println("You should subscribe first to access our functionalities!");
                     customers.get(customers.size() - 1).addSubscription(coaches);
                     customers.get(customers.size() - 1).addInBody();
-                } else {
+                }
+                else {
                     System.out.println("""
                             You have already an Account!!
                             Please, Log-In.""");
@@ -536,65 +489,16 @@ public class Gym {
                                    ------------------""");
             }
         }
-//
-//        System.out.print("Enter your Name: ");
-//        newCustomer.setName(input.nextLine());
-//
-//        System.out.print("Enter your Password: ");
-//        newCustomer.setPassword(input.nextLine());
-//        System.out.print("Enter your Gender: ");
-//        while (true) {
-//
-//            try {
-//                newCustomer.setGender(input.next().charAt(0));
-//                if (newCustomer.getGender()!='F'&&newCustomer.getGender()!='f'&&newCustomer.getGender()!='M'&&newCustomer.getGender()!='m') {
-//                    throw new IllegalArgumentException("""
-//                                                       -----------------------
-//                                                       PLEASE, ENTER F OR M!!
-//                                                       -----------------------
-//                                                       Enter your Gender:
-//                                                       """
-//
-//                    );
-//
-//                }
-//                break;
-//            } catch (IllegalArgumentException e) {
-//                System.err.println(e.getMessage());
-//            }
-//        }
-//
-//
-//        System.out.print("Enter your Address: ");
-//        newCustomer.setAddress(input.nextLine());
-//        input.nextLine();
-//        System.out.print("Enter your Phone Number: ");
-//        newCustomer.setPhoneNumber(input.next());
-//
-//        if (admin.add(newCustomer, customers)) {
-//            customers.add(newCustomer);
-//            System.out.println("""
-//                               Congratulation!!
-//                               Now, you have an account""");
-//            System.out.println("And your ID is: " + newCustomer.getID());
-//            System.out.println("------------------------------------------------");
-//            System.out.println("You should subscribe first to access our functionalities!");
-//            customers.get(customers.size()-1).addSubscription(coaches);
-//            customers.get(customers.size()-1).addInBody();
-////            return true;
-//        } else {
-//            System.out.println("""
-//                    You have already an Account!!
-//                    Please, Log-In.""");
-////            return false;
-//        }
     }
 
     // to display all equipment in the gym for the customer.
     public void displayEquipment() {
-        System.out.println("The Equipment's Names in the GYM:");
+        System.out.println("""
+                ---------------------------------
+                The Equipment's Names in the GYM:
+                ---------------------------------""");
         for (int i = 0; i < equipments.size(); i++) {
-            System.out.print((i + 1) + "- " + equipments.get(i).getName() + ".");
+            System.out.println((i + 1) + "- " + equipments.get(i).getName() + ".");
         }
         System.out.println("-----------------------------------------------");
     }

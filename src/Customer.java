@@ -33,10 +33,13 @@ public class Customer extends Person {
 
     @Override
     public void displayInfo() {
-        System.out.println("The information of " + getName() + ": ");
+        System.out.println("------------------------------------------");
+        System.out.println("The information of the Coach: " + getName());
+        System.out.println("------------------------------------------");
         System.out.println("Phone number: " + getPhoneNumber());
         System.out.println("Gender: " + getGender());
         System.out.println("Email: " + getEmail());
+        System.out.println("------------------------------------------");
     }
 
     // Display Coach Info of this Customer
@@ -58,7 +61,10 @@ public class Customer extends Person {
 
     // Display Membership Plan
     public void displayMembershipPlan() {
-        System.out.println("Your Membership Plan Details:");
+        System.out.println("""
+                -----------------------------
+                Your Membership Plan Details:
+                -----------------------------""");
         this.subscriptions.get(subscriptions.size() - 1).getMembershipPlan().displayInfo();
         System.out.println("------------------------------------------------------------");
     }
@@ -77,7 +83,6 @@ public class Customer extends Person {
         }
         try {
             inBodies.get(inBodyIndex).displayInBodyDetails();
-            System.out.println("--------------------------------------------------------------");
         } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                --------------
@@ -130,7 +135,9 @@ public class Customer extends Person {
         MembershipPlan newMembershipPlan = new MembershipPlan();
         newSubscription.setMembershipPlan(newMembershipPlan);
 
-        System.out.println("Choose one Coach from those available coaches:");
+        System.out.println("""
+                Choose one Coach from those available coaches:
+                ----------------------------------------------""");
         displayAvailableCoaches(coaches);
         System.out.print("Enter the Coach Id you have chosen: ");
         int coachId = input.nextInt();
@@ -145,10 +152,12 @@ public class Customer extends Person {
             if (coaches.get(coachIndex).canCustomerSubscribe()) {
                 newSubscription.setCoachId(coachId);
                 coaches.get(coachIndex).getCustomers().add(this);
-            } else {
+            }
+            else {
                 System.out.println("This Coach has 10 Customers, so he/she can not take another Customer!");
             }
-        } catch (IndexOutOfBoundsException exp) {
+        }
+        catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                -------------
                                INVALID ID!!
@@ -162,12 +171,13 @@ public class Customer extends Person {
             try {
                 newMembershipPlan.setStartDate(SearchDate.parseDate(input.next()));
                 break;
-            } catch (IllegalArgumentException e) {
+            }
+            catch (IllegalArgumentException e) {
                 System.err.println(e.getMessage());
             }
         }
         while (true) {
-            System.out.println("Enter the Monthly Plan (3/6) days per month: ");
+            System.out.print("Enter the Monthly Plan (3/6) days per month: ");
 
             try {
                 newMembershipPlan.setMonthlyPlan(input.nextInt());
@@ -184,6 +194,7 @@ public class Customer extends Person {
         }
         System.out.print("Enter the Number of Months: ");
         newMembershipPlan.setMonthRegisterd(input.nextInt());
+        System.out.println("-------------------------------------------------------------");
         System.out.println("The Price of the Membership Plan: " + newMembershipPlan.getPrice());
         System.out.println("Your Membership Plan will end at: " + SearchDate.getStringDate(newMembershipPlan.getEndDate()));
         System.out.println("-------------------------------------------------------------");
@@ -259,10 +270,16 @@ public class Customer extends Person {
 
             newInBody.setGender(this.getGender());
             this.inBodies.add(newInBody);
-            System.out.println("You have entered your In-Body information successfully");
-            System.out.println("-----------------------------------------------------");
-        }else{
-            System.out.println("Now, you are not allowed to perform another in-body scan yet.");
+            System.out.println("""
+                    -------------------------------------------------------
+                    You have entered your In-Body details successfully.
+                    -------------------------------------------------------""");
+        }
+        else{
+            System.out.println("""
+                    -------------------------------------------------------------
+                    Now, you are not allowed to perform another In-Body scan yet.
+                    -------------------------------------------------------------""");
 
         }
     }

@@ -54,7 +54,10 @@ public class Coach extends Person {
         try {
             customers.get(customerIndex).displayInfo();
         } catch (IndexOutOfBoundsException exp) {
-            System.out.println("INVALID NAME!!");
+            System.out.println("""
+                    --------------
+                    INVALID NAME!!
+                    --------------""");
         }
 
     }
@@ -71,12 +74,12 @@ public class Coach extends Person {
     }
 
     public void displayInBodyHistory() {
-        String customerId;
+        int customerId;
         int customerIndex = -1;
-        System.out.println("Enter the Customer ID to show his/her In-Body history");
-        customerId = input.next();
+        System.out.print("Enter the Customer ID to show his/her In-Body history: ");
+        customerId = input.nextInt();
         for (int i = 0; i < customers.size(); i++) {
-            if (customerId.equals(customers.get(i).getID())) {
+            if (customerId == customers.get(i).getID()) {
                 customerIndex = i;
                 break;
             }
@@ -84,7 +87,10 @@ public class Coach extends Person {
         try {
             customers.get(customerIndex).displayInBodyDetails();
         } catch (IndexOutOfBoundsException exp) {
-            System.out.println("INVALID ID!!");
+            System.out.println("""
+                    ------------
+                    INVALID ID!!
+                    ------------""");
         }
     }
 

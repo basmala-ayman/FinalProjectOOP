@@ -108,13 +108,11 @@ public class Admin {
                                                        -----------------------
                                                        PLEASE, ENTER F OR M!!
                                                        -----------------------
-                                                       Enter your Gender: 
-                                                       """
-                            );
+                                                       Enter your Gender: """);
                         }
                         break;
                     } catch (IllegalArgumentException e) {
-                        System.err.println(e.getMessage());
+                        System.err.print(e.getMessage());
                     }
                 }
                 System.out.print("Enter the Address of the new coach: ");
@@ -126,9 +124,10 @@ public class Admin {
                 newCoach.setWorkingHours(input.nextFloat());
                 coaches.add(newCoach);
                 System.out.println("""
+                               ---------------------------------------
                                Congratulation!!
-                               This Coach has been added successfuly.
-                               --------------------------------------""");
+                               This Coach has been added successfully.
+                               ---------------------------------------""");
                 System.out.println("And his/her ID is: " + newCoach.getID());
                 System.out.println("----------------------------------------------------");
                 break;
@@ -299,7 +298,7 @@ public class Admin {
             }
         }
         try {
-            coaches.contains(coaches.get(coachIndex)); // to check if the coachId not invalid
+            boolean check = coaches.contains(coaches.get(coachIndex)); // to check if the coachId not invalid
             while (true) {
                 System.out.println("""
                         Press:
@@ -309,53 +308,61 @@ public class Admin {
                         3 --> To edit the Address.
                         4 --> To edit the Phone Number.
                         5 --> To edit tht Working Hours.
+                        6 --> To back.
                         ----------------------------------------""");
                 choice = input.nextInt();
-                switch (choice) {
-                    case 1: // To edit the Name.
-                        System.out.print("Enter the Name: ");
-                        input.nextLine();
-                        coaches.get(coachIndex).setName(input.nextLine());
-                        System.out.println("The Name is edited successfully.");
-                        System.out.println("---------------------------------");
-                        break;
-                    case 2: // To edit the Password.
-                        System.out.print("Enter the Password: ");
-                        input.nextLine();
-                        coaches.get(coachIndex).setPassword(input.nextLine());
-                        System.out.println("The Password is edited successfully.");
-                        System.out.println("-------------------------------------");
-                        break;
-                    case 3: // To edit the Address.
-                        System.out.print("Enter the Address: ");
-                        input.nextLine();
-                        coaches.get(coachIndex).setAddress(input.nextLine());
-                        System.out.println("The Address is edited successfully.");
-                        System.out.println("------------------------------------");
-                        break;
-                    case 4: // To edit the Phone Number.
-                        System.out.print("Enter the Phone Number: ");
-                        coaches.get(coachIndex).setPhoneNumber(input.next());
-                        System.out.println("The Phone Number is edited successfully.");
-                        System.out.println("-----------------------------------------");
-                        break;
-                    case 5: // To edit tht Working Hours.
-                        System.out.print("Enter the Working Hours: ");
-                        coaches.get(coachIndex).setWorkingHours(input.nextInt());
-                        System.out.println("The Working Hours is edited successfully.");
-                        System.out.println("------------------------------------------");
-                        break;
-                    default:
-                        Main.invalidMsg();
-                        continue;
+                if (choice == 6){
+                    break;
                 }
-                System.out.println("Do you want to edit another thing (Y/N)?");
+                if (choice == 1) { // To edit the Name.
+                    System.out.print("Enter the Name: ");
+                    input.nextLine();
+                    coaches.get(coachIndex).setName(input.nextLine());
+                    System.out.println("The Name is edited successfully.");
+                    System.out.println("---------------------------------");
+                    input.nextLine();
+                }
+                else if (choice == 2) { // To edit the Password.
+                    System.out.print("Enter the Password: ");
+                    input.nextLine();
+                    coaches.get(coachIndex).setPassword(input.nextLine());
+                    System.out.println("The Password is edited successfully.");
+                    System.out.println("-------------------------------------");
+                    input.nextLine();
+                }
+                else if (choice == 3) { // To edit the Address.
+                    System.out.print("Enter the Address: ");
+                    input.nextLine();
+                    coaches.get(coachIndex).setAddress(input.nextLine());
+                    System.out.println("The Address is edited successfully.");
+                    System.out.println("------------------------------------");
+                    input.nextLine();
+                }
+                else if (choice == 4) { // To edit the Phone Number.
+                    System.out.print("Enter the Phone Number: ");
+                    coaches.get(coachIndex).setPhoneNumber(input.next());
+                    System.out.println("The Phone Number is edited successfully.");
+                    System.out.println("-----------------------------------------");
+                }
+                else if (choice == 5) { // To edit tht Working Hours.
+                    System.out.print("Enter the Working Hours: ");
+                    coaches.get(coachIndex).setWorkingHours(input.nextInt());
+                    System.out.println("The Working Hours is edited successfully.");
+                    System.out.println("------------------------------------------");
+                }
+                else {
+                    Main.invalidMsg();
+                    continue;
+                }
+                System.out.print("Do you want to edit another thing (Y/N)?");
                 repeat=input.next().charAt(0);
+                System.out.println("-----------------------------------------------------");
                 if(repeat!='y'&&repeat!='Y'){
                     break;
                 }
             }
-        } catch (IndexOutOfBoundsException exp) {
+        }
+        catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                ------------
                                INVALID ID!!
@@ -378,7 +385,7 @@ public class Admin {
         }
 
         try {
-            customers.contains(customers.get(customerIndex)); // to check if the customerId not invalid?!!
+            boolean check = customers.contains(customers.get(customerIndex)); // to check if the customerId not invalid?!!
             while (true) {
                 System.out.println("""
                         Press:
@@ -387,42 +394,46 @@ public class Admin {
                         2 --> To edit the Password.
                         3 --> To edit the Address.
                         4 --> To edit the Phone Number.
+                        5 --> To back.
                         --------------------------------------""");
                 choice = input.nextInt();
-                switch (choice) {
-                    case 1: // To edit the Name.
-                        System.out.print("Enter the Name: ");
-                        input.nextLine();
-                        customers.get(customerIndex).setName(input.next());
-                        System.out.println("The Name is edited successfully.");
-                        System.out.println("---------------------------------");
-                        break;
-                    case 2: // To edit the Password.
-                        System.out.print("Enter the Password: ");
-                        input.nextLine();
-                        customers.get(customerIndex).setPassword(input.next());
-                        System.out.println("The Password is edited successfully.");
-                        System.out.println("-------------------------------------");
-                        break;
-                    case 3: // To edit the Address.
-                        System.out.print("Enter the Address: ");
-                        input.nextLine();
-                        customers.get(customerIndex).setAddress(input.nextLine());
-                        System.out.println("The Address is edited successfully.");
-                        System.out.println("------------------------------------");
-                        break;
-                    case 4: // To edit the Phone Number.
-                        System.out.print("Enter the Phone Number: ");
-                        customers.get(customerIndex).setPhoneNumber(input.next());
-                        System.out.println("The Phone Number is edited successfully.");
-                        System.out.println("-----------------------------------------");
-                        break;
-                    default:
-                        Main.invalidMsg();
-                        continue;
+                if (choice == 5){
+                    break;
+                }
+                if (choice == 1) { // To edit the Name.
+                    System.out.print("Enter the Name: ");
+                    input.nextLine();
+                    customers.get(customerIndex).setName(input.next());
+                    System.out.println("The Name is edited successfully.");
+                    System.out.println("---------------------------------");
+                }
+                else if (choice == 2) { // To edit the Password.
+                    System.out.print("Enter the Password: ");
+                    input.nextLine();
+                    customers.get(customerIndex).setPassword(input.next());
+                    System.out.println("The Password is edited successfully.");
+                    System.out.println("-------------------------------------");
+                }
+                else if (choice == 3) { // To edit the Address.
+                    System.out.print("Enter the Address: ");
+                    input.nextLine();
+                    customers.get(customerIndex).setAddress(input.nextLine());
+                    System.out.println("The Address is edited successfully.");
+                    System.out.println("------------------------------------");
+                }
+                else if (choice == 4) { // To edit the Phone Number.
+                    System.out.print("Enter the Phone Number: ");
+                    customers.get(customerIndex).setPhoneNumber(input.next());
+                    System.out.println("The Phone Number is edited successfully.");
+                    System.out.println("-----------------------------------------");
+                }
+                else {
+                    Main.invalidMsg();
+                    continue;
                 }
                 System.out.print("Do you want to edit another thing (Y/N)? ");
                 repeat= input.next().charAt(0);
+                System.out.println("----------------------------------------------------");
                 if (repeat != 'y'&& repeat != 'Y'){
                     break;
                 }
@@ -439,7 +450,7 @@ public class Admin {
         String equipmentCode;
         char repeat;
         int choice, equipmentIndex = -1;
-        System.out.print("Enter the Customer ID you want to edit his/her information: ");
+        System.out.print("Enter the Equipment Code you want to edit its information: ");
         equipmentCode = input.next();
         for (int i = 0; i < equipments.size(); i++) {
             if (equipments.get(i).getCode().equals(equipmentCode)) {
@@ -450,40 +461,45 @@ public class Admin {
 
         try {
             // to check if the equipmentCode not invalid?!!
-            equipments.contains(equipments.get(equipmentIndex));
+            boolean check = equipments.contains(equipments.get(equipmentIndex));
             while (true) {
                 System.out.println("""
                         Press:
                         ------
                         1 --> To edit the Name.
                         2 --> To edit the Quantity.
+                        3 --> To back.
                         ---------------------------""");
                 choice = input.nextInt();
-                switch (choice) {
-                    case 1: // To edit the Name.
-                        System.out.print("Enter the Name: ");
-                        input.nextLine();
-                        equipments.get(equipmentIndex).setName(input.nextLine());
-                        System.out.println("The Name is edited successfully.");
-                        System.out.println("---------------------------------------");
-                        break;
-                    case 2: // To edit the Quantity.
-                        System.out.print("Enter the Quantity: ");
-                        equipments.get(equipmentIndex).setQuantity(input.nextInt());
-                        System.out.println("The Quantity is edited successfully.");
-                        System.out.println("---------------------------------------");
-                        break;
-                    default:
-                        Main.invalidMsg();
-                        continue;
+                if (choice == 3){
+                    break;
+                }
+                if (choice == 1) { // To edit the Name.
+                    System.out.print("Enter the Name: ");
+                    input.nextLine();
+                    equipments.get(equipmentIndex).setName(input.nextLine());
+                    System.out.println("The Name is edited successfully.");
+                    System.out.println("---------------------------------------");
+                }
+                else if (choice == 2) { // To edit the Quantity.
+                    System.out.print("Enter the Quantity: ");
+                    equipments.get(equipmentIndex).setQuantity(input.nextInt());
+                    System.out.println("The Quantity is edited successfully.");
+                    System.out.println("---------------------------------------");
+                }
+                else {
+                    Main.invalidMsg();
+                    continue;
                 }
                 System.out.print("Do you want to edit another thing (Y/N)? ");
                 repeat= input.next().charAt(0);
+                System.out.println("--------------------------------------------------");
                 if (repeat != 'y'&& repeat != 'Y'){
                     break;
                 }
             }
-        } catch (IndexOutOfBoundsException exp) {
+        }
+        catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                --------------
                                INVALID CODE!!

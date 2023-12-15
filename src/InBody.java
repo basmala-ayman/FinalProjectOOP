@@ -246,19 +246,23 @@ public class InBody {
     }
 
     public void displayInBodyDetails() {
+        System.out.println("""
+                --------------------
+                The In-Body Details:
+                --------------------""");
         System.out.println("Height: " + height + " meters.\n"
-                + "Total Weight: " + totalWeight + " kilograms\n"
-                + "Body Fat Mass: " + bodyFatMass + " kilograms\n"
-                + "Minerals: " + minerals + " kilograms\n"
-                + "Total Body Water: " + totalBodyWater + " kilograms\n"
-                + "Protein: " + protein + " kilograms"
+                + "Total Weight: " + totalWeight + " kilograms.\n"
+                + "Body Fat Mass: " + bodyFatMass + " kilograms.\n"
+                + "Minerals: " + minerals + " kilograms.\n"
+                + "Total Body Water: " + totalBodyWater + " kilograms.\n"
+                + "Protein: " + protein + " kilograms.\n"
                 + "-------------------------------------------------------");
     }
 
     // input-body methods
-    private static float CalculateBMI(float totalWeight, float height) {
+    private static void CalculateBMI(float totalWeight, float height) {
         float BMI = (totalWeight) / (height * height); //BMI = Body Mass Index
-
+        System.out.println("-----------------------------------------------------");
         System.out.println("Your BMI value: " + BMI);
 
         if (BMI < 18.5) {
@@ -270,7 +274,6 @@ public class InBody {
         } else {
             System.out.println("You are obese!");
         }
-        return BMI;
     }
 
     // Method to display the recommended weight to be reduced
