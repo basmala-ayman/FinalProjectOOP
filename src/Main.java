@@ -36,10 +36,6 @@ public class Main {
                     3 --> If you are a Customer.
                     -----------------------------""");
             choice = input.nextInt();
-//            if (choice < 1 || choice > 3) {
-//                invalidMsg();
-//                continue;
-//            }
             // if the user is Admin
             if (choice == 1) { // If the user is an admin
                 if (ourGym.getAdmin().logIn()) {
@@ -278,87 +274,88 @@ public class Main {
                         login = true;
                     }
                     if (choice == 2 || login) {
-                        int coachIndex = ourGym.logInCoach();
-                        if (coachIndex != -1) {
-                            if (ourGym.getCoaches().get(coachIndex).getCustomers().isEmpty()) {
-                                System.out.println("You do not have any Customers yet!");
-                                System.out.println("Thank you");
-                                System.out.println("-------------------------------------------------");
-                                break;
-                            }
-                            while (true) {
-                                System.out.println("""
-                                        Press:
-                                        -------
-                                        1 --> To show a list of all your customers.
-                                        2 --> To get the In-Body history of any your customers.
-                                        3 --> To get all the details of a customer (Accroding his/her Name).
-                                        4 --> To show a list of all his female/male customers.
-                                        ----------------------------------------------------------------------""");
-                                choice = input.nextInt();
-                                //
-                                if (choice == 1) { //To show a list of all your customers.
-                                    ourGym.getCoaches().get(coachIndex).displayCustomers();
-                                }
-                                else if (choice == 2) {//To get the In-Body history of any your customers.
-                                    do {
-                                        ourGym.getCoaches().get(coachIndex).displayInBodyHistory();
-                                        System.out.print("Do you want to show the In-Body History of another customer (Y/N)? ");
-                                        repeat = input.next().charAt(0);
-                                    } while (repeat == 'y' || repeat == 'Y');
-                                }
-                                else if (choice == 3) { //  To get all the details of a customer (Accroding his/her Name).
-                                    do {
-                                        ourGym.getCoaches().get(coachIndex).displayCustomerAccrodingName();
-                                        System.out.print("Do you want to show the details of another customer (Y/N)? ");
-                                        repeat = input.next().charAt(0);
-                                    } while (repeat == 'y' || repeat == 'Y');
-                                }
-                                else if (choice == 4) { // To show a list of all his female/male customers.
-                                    do {
-                                        ourGym.getCoaches().get(coachIndex).displayCustomersAccrodingGender();
-                                        System.out.println("Do you want to show the customers of the other gender (Y/N)?");
-                                        repeat = input.next().charAt(0);
-                                    } while (repeat == 'y' || repeat == 'Y');
-                                }
-//                                else if (choice==5) {
-//                                    main();
-//                                }
-                                else {
-                                    invalidMsg();
-                                    continue;
+                        while (true){
+                            int coachIndex = ourGym.logInCoach();
+                            if (coachIndex != -1) {
+                                if (ourGym.getCoaches().get(coachIndex).getCustomers().isEmpty()) {
+                                    System.out.println("You do not have any Customers yet!");
+                                    System.out.println("Thank you");
+                                    System.out.println("-------------------------------------------------");
+                                    break;
                                 }
                                 while (true) {
                                     System.out.println("""
                                             Press:
-                                            ------
-                                            1 --> To do another operation.
-                                            2 --> To Log Out.
-                                            -------------------------------""");
+                                            -------
+                                            1 --> To show a list of all your customers.
+                                            2 --> To get the In-Body history of any your customers.
+                                            3 --> To get all the details of a customer (Accroding his/her Name).
+                                            4 --> To show a list of all his female/male customers.
+                                            ----------------------------------------------------------------------""");
                                     choice = input.nextInt();
-                                    if (choice == 1) { // To do another operation.
-                                        break;
-                                    } else if (choice == 2) { // To Log Out.
-                                        ourGym.logOut();
-                                        break;
-                                    } else {
-                                        Main.invalidMsg();
+                                    //
+                                    if (choice == 1) { //To show a list of all your customers.
+                                        ourGym.getCoaches().get(coachIndex).displayCustomers();
+                                    }
+                                    else if (choice == 2) {//To get the In-Body history of any your customers.
+                                        do {
+                                            ourGym.getCoaches().get(coachIndex).displayInBodyHistory();
+                                            System.out.print("Do you want to show the In-Body History of another customer (Y/N)? ");
+                                            repeat = input.next().charAt(0);
+                                        } while (repeat == 'y' || repeat == 'Y');
+                                    }
+                                    else if (choice == 3) { //  To get all the details of a customer (Accroding his/her Name).
+                                        do {
+                                            ourGym.getCoaches().get(coachIndex).displayCustomerAccrodingName();
+                                            System.out.print("Do you want to show the details of another customer (Y/N)? ");
+                                            repeat = input.next().charAt(0);
+                                        } while (repeat == 'y' || repeat == 'Y');
+                                    }
+                                    else if (choice == 4) { // To show a list of all his female/male customers.
+                                        do {
+                                            ourGym.getCoaches().get(coachIndex).displayCustomersAccrodingGender();
+                                            System.out.println("Do you want to show the customers of the other gender (Y/N)?");
+                                            repeat = input.next().charAt(0);
+                                        } while (repeat == 'y' || repeat == 'Y');
+                                    }
+    //                                else if (choice==5) {
+    //                                    main();
+    //                                }
+                                    else {
+                                        invalidMsg();
                                         continue;
                                     }
+                                    while (true) {
+                                        System.out.println("""
+                                                Press:
+                                                ------
+                                                1 --> To do another operation.
+                                                2 --> To Log Out.
+                                                -------------------------------""");
+                                        choice = input.nextInt();
+                                        if (choice == 1) { // To do another operation.
+                                            break;
+                                        } else if (choice == 2) { // To Log Out.
+                                            ourGym.logOut();
+                                            break;
+                                        } else {
+                                            Main.invalidMsg();
+                                            continue;
+                                        }
+                                    }
+                                    if (choice == 1){
+                                        continue;
+                                    }
+                                    else{
+                                        break;
+                                    }
                                 }
-                                if (choice == 1){
-                                    continue;
-                                }
-                                else{
-                                    break;
-                                }
+    //                            break;
                             }
-//                            break;
-                        }
-                        else {
-//                            input.nextLine();
-                            ourGym.signUpCoach();
-                            continue;
+                            else {
+                                ourGym.signUpCoach();
+                                continue;
+                            }
                         }
                         do {
                             System.out.println("""

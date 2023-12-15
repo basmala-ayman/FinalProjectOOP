@@ -227,14 +227,12 @@ public class Gym {
         System.out.print("Enter your name: ");
         newCoach.setName(input.nextLine());
         System.out.print("Enter your Email: ");
-        newCoach.setEmail(input.next());
-        input.nextLine();
+        newCoach.setEmail(input.nextLine());
         System.out.print("Enter your Password: ");
         //input.nextLine();
         newCoach.setPassword(input.nextLine());
         System.out.print("Enter your Gender (M/F): ");
         while (true) {
-
             try {
                 newCoach.setGender(input.next().charAt(0));
                 if (newCoach.getGender()!='F'&&newCoach.getGender()!='f'&&newCoach.getGender()!='M'&&newCoach.getGender()!='m') {
@@ -242,8 +240,7 @@ public class Gym {
                                                        -----------------------
                                                        PLEASE, ENTER F OR M!!
                                                        -----------------------
-                                                       Enter your Gender: 
-                                                       """
+                                                       Enter your Gender: """
                     );
                 }
                 break;
