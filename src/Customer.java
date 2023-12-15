@@ -99,13 +99,13 @@ public class Customer extends Person {
         System.out.println("----------------------------------------------------");
     }
 
-    // Display the Subscribtion History of this Customer
+    // Display the Subscription History of this Customer
     public void displaySubscribtionHistory() {
         for (int i = 0; i < subscriptions.size(); i++) {
-            System.out.println("Data of Customer's subscribtion Plan number " + (i + 1) + " : ");
+            System.out.println("Data of Customer's Subscription Plan number " + (i + 1) + " : ");
             System.out.println("Starts at: " + SearchDate.getStringDate(subscriptions.get(i).getMembershipPlan().getStartDate()));
             System.out.println("Number of months registered: " + subscriptions.get(i).getMembershipPlan().getMonthRegisterd());
-            System.out.println("Number of Days per week " + subscriptions.get(i).getMembershipPlan().getMonthlyPlan());
+            System.out.println("Number of Days per Week " + subscriptions.get(i).getMembershipPlan().getMonthlyPlan());
 
         }
     }
@@ -122,7 +122,7 @@ public class Customer extends Person {
         System.out.println("-------------------------------------------------------------");
     }
 
-    // Add Subscribtion for the Customer to subscribe at the first time or to add another one
+    // Add Subscription for the Customer to subscribe at the first time or to add another one
     public void addSubscription(ArrayList<Coach> coaches) {
         Subscription newSubscription = new Subscription();
         subscriptions.add(newSubscription);
