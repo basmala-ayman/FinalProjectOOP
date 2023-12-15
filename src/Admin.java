@@ -617,12 +617,17 @@ public class Admin {
 
     // Display Coaches Sorted Descinding
     public void displayCoachesSortedDesc(ArrayList<Coach> coaches) {
+        if(!coaches.isEmpty()){
         coaches.sort(Comparator.comparing(Coach::getCustomersSize).reversed());
         System.out.println("The Coaches sorted in terms of the most assigned number of customers to the coaches:");
         System.out.println("-------------------------------------------------------------------------------------");
         for (int i = 0; i < coaches.size(); i++) {
-            System.out.println((i + 1) + ". " + coaches.get(i).getName()+" has "+ coaches.get(i).getCustomersSize() + "Customers.");
+            System.out.println((i + 1) + ". " + coaches.get(i).getName()+" has "+ coaches.get(i).getCustomersSize() + " Customers.");
         }
         System.out.println("------------------------------------------------------");
+    }
+        else {
+            System.out.println("No added coaches!");
+        }
     }
 }
