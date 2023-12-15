@@ -103,7 +103,7 @@ public class Customer extends Person {
     public void displaySubscribtionHistory() {
         for (int i = 0; i < subscriptions.size(); i++) {
             System.out.println("Data of Customer's subscribtion Plan number " + (i + 1) + " : ");
-            System.out.println("Starts at: " + subscriptions.get(i).getMembershipPlan().getStartDate());
+            System.out.println("Starts at: " + SearchDate.getStringDate(subscriptions.get(i).getMembershipPlan().getStartDate()));
             System.out.println("Number of months registered: " + subscriptions.get(i).getMembershipPlan().getMonthRegisterd());
             System.out.println("Number of Days per week " + subscriptions.get(i).getMembershipPlan().getMonthlyPlan());
 

@@ -508,7 +508,10 @@ public class Admin {
         try {
             customers.get(customerIndex).displaySubscribtionHistory();
         } catch (IndexOutOfBoundsException exp) {
-            System.out.println("INVALID ID!!");
+            System.out.println("""
+                    ------------
+                    INVALID ID!!
+                    ------------""");
         }
     }
       else {
@@ -524,8 +527,6 @@ public class Admin {
         char repeat;
         while (true) {
             System.out.println("""
-                           Customers that subscribed to the gym in a specific day or month.
-                           -----------------------------------------------------------------
                            Press:
                            ------
                            1 --> to enter a specific day.
@@ -533,17 +534,18 @@ public class Admin {
                            3 --> Back.
                            ---------------------------------""");
             choice = input.nextInt();
+            if (choice==3) {
+                break;
+            }
             if (choice == 1) {
                 System.out.print("Enter the day in format (dd-MM-yyyy): ");
                 date = input.next();
-                System.out.println("Customers are subscribed in day (" + date + "):");
                 System.out.println("--------------------------------------------------");
                 for (int i = 0; i < customers.size(); i++) {
                     for (int j = 0; j < customers.get(i).getSubscriptions().size(); j++) {
                         if (SearchDate.getDay(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getDay(SearchDate.parseDate(date)) && SearchDate.getMonth(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getMonth(SearchDate.parseDate(date)) && SearchDate.getYear(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getYear(SearchDate.parseDate(date))) {
                             count++;
                             System.out.println(count + ") " + customers.get(i).getName());
-                            break;
                         }
                     }
                 }
@@ -555,14 +557,14 @@ public class Admin {
             else if (choice == 2) {
                 System.out.print("Enter the month in format (MM-yyyy): ");
                 date = input.next();
-                System.out.println("Customers are subscribed in month (" + date + "):");
                 System.out.println("--------------------------------------------------");
+//                System.out.println("Customers are subscribed in month (" + date + "):");
                 for (int i = 0; i < customers.size(); i++) {
                     for (int j = 0; j < customers.get(i).getSubscriptions().size(); j++) {
                         if (SearchDate.getMonth(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getMonth(SearchDate.parseDateMonth(date)) && SearchDate.getYear(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getYear(SearchDate.parseDateMonth(date))) {
                             count++;
                             System.out.println(count + ") " + customers.get(i).getName());
-                            break;
+//                            break;
                         }
                     }
                 }
@@ -572,23 +574,16 @@ public class Admin {
                 }
 
             }
-            else if (choice==3) {
-                break;
-            }
             else {
                 Main.invalidMsg();
                 continue;
             }
-
-
-            do {
-                //ourGym.getAdmin().displayGymIncome(ourGym);
-                System.out.print("Do you want to show the customers that subscribed to the gym again(y/n): ");
-                repeat = input.next().charAt(0);
-            } while (repeat == 'y' || repeat == 'Y');
-            break;
+            System.out.print("Do you want to show the customers that subscribed to the gym again(y/n): ");
+            repeat = input.next().charAt(0);
+            if(repeat != 'y' && repeat != 'Y'){
+                break;
+            }
         }
-
     }
 
     // Display Customers Of a specific Coach
@@ -626,7 +621,7 @@ public class Admin {
         System.out.println("The Coaches sorted in terms of the most assigned number of customers to the coaches:");
         System.out.println("-------------------------------------------------------------------------------------");
         for (int i = 0; i < coaches.size(); i++) {
-            System.out.println((i + 1) + ". " + coaches.get(i).getName()+" has "+ coaches.get(i).getCustomersSize());
+            System.out.println((i + 1) + ". " + coaches.get(i).getName()+" has "+ coaches.get(i).getCustomersSize() + "Customers.");
         }
         System.out.println("------------------------------------------------------");
     }

@@ -149,9 +149,8 @@ public class Main {
                                         4 --> Back.
                                         ----------------------------""");
                                 choice = input.nextInt();
-                                if (choice < 1 || choice > 4) {
-                                    invalidMsg();
-                                    continue;
+                                if (choice == 4){
+                                    break;
                                 }
                                 if (choice == 1) { // To edit a Coach.
                                     do {
@@ -173,9 +172,6 @@ public class Main {
                                         System.out.println("Do you want to edit another Coach (Y/N)?");
                                         repeat = input.next().charAt(0);
                                     } while (repeat == 'y' || repeat == 'Y');
-                                }
-                                else if (choice == 4) {
-                                    break;
                                 }
                                 else {
                                     invalidMsg();
