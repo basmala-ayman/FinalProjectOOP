@@ -53,7 +53,7 @@ public class Coach extends Person {
         }
         try {
             customers.get(customerIndex).displayInfo();
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("INVALID NAME!!");
         }
 
@@ -83,7 +83,7 @@ public class Coach extends Person {
         }
         try {
             customers.get(customerIndex).displayInBodyDetails();
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("INVALID ID!!");
         }
     }

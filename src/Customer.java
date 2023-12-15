@@ -78,7 +78,7 @@ public class Customer extends Person {
         try {
             inBodies.get(inBodyIndex).displayInBodyDetails();
             System.out.println("--------------------------------------------------------------");
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                --------------
                                INVALID DATE!!
@@ -148,7 +148,7 @@ public class Customer extends Person {
             } else {
                 System.out.println("This Coach has 10 Customers, so he/she can not take another Customer!");
             }
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                -------------
                                INVALID ID!!
