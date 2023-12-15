@@ -100,7 +100,7 @@ public class Customer extends Person {
     }
 
     // Display the Subscription History of this Customer
-    public void displaySubscribtionHistory() {
+    public void displaySubscriptionHistory() {
         for (int i = 0; i < subscriptions.size(); i++) {
             System.out.println("Data of Customer's Subscription Plan number " + (i + 1) + " : ");
             System.out.println("Starts at: " + SearchDate.getStringDate(subscriptions.get(i).getMembershipPlan().getStartDate()));

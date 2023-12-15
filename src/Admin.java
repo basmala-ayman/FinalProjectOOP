@@ -506,7 +506,7 @@ public class Admin {
             }
         }
         try {
-            customers.get(customerIndex).displaySubscribtionHistory();
+            customers.get(customerIndex).displaySubscriptionHistory();
         } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                     ------------
