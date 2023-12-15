@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,37 +63,37 @@ public class Gym {
     }
 
     // Files Functions
-//    public void customerFile() throws IOException {
-////        ArrayList<Customer> people=new ArrayList<>();
-//
-//        String file="SubscriptionFile";
-//
-//        BufferedReader reader = null;
-//        String line2 = "";
-//
-//        try {
-//            reader = new BufferedReader(new FileReader(file));
-//            while((line2 = reader.readLine()) != null) {
-//                String[] row = line2.split(",");
-//                Subscription newSubscription=new Subscription();
-//                MembershipPlan newMembershipPlan= new MembershipPlan();
-//                newSubscription.setCoachId(Integer.parseInt(row[0]));
-//                newSubscription.setCustomerId(Integer.parseInt(row[1]));
-//                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
-//                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
-//                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
-//
-//                newSubscription.setMembershipPlan(newMembershipPlan);
-//                subscriptions.add(newSubscription);
-//            }
-//        }
-//        catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            reader.close();
-//        }
-//    }
+    public void subscriptionFile() throws IOException {
+//        ArrayList<Customer> people=new ArrayList<>();
+
+        File file= new File("D://SubscriptionFile.txt");
+
+        BufferedReader reader = null;
+        String line2 = "";
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            while((line2 = reader.readLine()) != null) {
+                String[] row = line2.split(",");
+                Subscription newSubscription=new Subscription();
+                MembershipPlan newMembershipPlan= new MembershipPlan();
+                newSubscription.setCoachId(Integer.parseInt(row[0]));
+                newSubscription.setCustomerId(Integer.parseInt(row[1]));
+                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
+                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
+                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
+
+                newSubscription.setMembershipPlan(newMembershipPlan);
+                subscriptions.add(newSubscription);
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            reader.close();
+        }
+    }
 
     // LogIn Functions
     public int logInCoach() {
@@ -379,4 +380,5 @@ public class Gym {
                 Your Log-Out has been successfully.
                 -----------------------------------""");
     }
+
 }

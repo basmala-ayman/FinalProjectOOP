@@ -9,7 +9,7 @@ public class Main {
                 ------------------""");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner input = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ public class Main {
         int choice;
         char repeat;
 
-//        ourGym.customerFile();
+//        ourGym.subscriptionFile();
 //        for (int i=0;i<ourGym.getSubscriptions().size();i++){
 //            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
 //                    +ourGym.getSubscriptions().get(i).getCustomerId() +" "
