@@ -64,9 +64,39 @@ public class Gym {
 
     // Files Functions
     public void subscriptionFile() throws IOException {
-//        ArrayList<Customer> people=new ArrayList<>();
 
-        File file= new File("D://SubscriptionFile.txt");
+        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//SubscriptionFile";
+
+        BufferedReader reader = null;
+        String line2 = "";
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            while((line2 = reader.readLine()) != null) {
+                String[] row = line2.split(",");
+                Subscription newSubscription=new Subscription();
+                MembershipPlan newMembershipPlan= new MembershipPlan();
+                newSubscription.setCoachId(Integer.parseInt(row[0]));
+                newSubscription.setCustomerId(Integer.parseInt(row[1]));
+                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
+                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
+                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
+
+                newSubscription.setMembershipPlan(newMembershipPlan);
+                subscriptions.add(newSubscription);
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            reader.close();
+        }
+    }
+
+    public void customerFile() throws IOException {
+
+        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CustomerFile";
 
         BufferedReader reader = null;
         String line2 = "";

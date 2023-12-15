@@ -17,7 +17,8 @@ public class Main {
         int choice;
         char repeat;
 
-        ourGym.subscriptionFile();
+//        ourGym.subscriptionFile();
+
 //        for (int i=0;i<ourGym.getSubscriptions().size();i++){
 //            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
 //                    +ourGym.getSubscriptions().get(i).getCustomerId() +" "
@@ -202,7 +203,6 @@ public class Main {
                                 System.out.println("Do you want to show customers in another date (y/n)?");
                                 repeat = input.next().charAt(0);
                             } while (repeat == 'y' || repeat == 'Y');
-//                            break;
                         }
                         else if (choice == 6) { // To display Customers of a specific Coach.
                             do {
