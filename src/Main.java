@@ -13,7 +13,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        Gym ourGym = new Gym();
+        Gym ourGym = new Gym("FITNESS GYM","Maadi","19019");
         int choice;
         char repeat;
 

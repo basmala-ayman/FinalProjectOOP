@@ -18,11 +18,12 @@ public class Gym {
     Scanner input = new Scanner(System.in);
 
     // Constructor
-//    public Gym() {
-//        name = "FITNESS GYM";
-//        address = "Cairo";
-//        phoneNumber = "19019";
-//    }
+
+    public Gym(String name, String address, String phoneNumber){
+        this.name=name;
+        this.address=address;
+        this.phoneNumber=phoneNumber;
+    }
 
     // Getters
     public String getName() {
