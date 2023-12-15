@@ -225,53 +225,149 @@ public class Gym {
                 Enter your information to Sign Up:
                 -----------------------------------""");
 
-        System.out.print("Enter your Email: ");
-        newCoach.setEmail(input.next());
-        System.out.print("Enter your name: ");
-        input.nextLine();
-        newCoach.setName(input.nextLine());
-        System.out.print("Enter your Password: ");
-        newCoach.setPassword(input.nextLine());
-        System.out.print("Enter your Gender (M/F): ");
+
         while (true) {
-            try {
-                newCoach.setGender(input.next().charAt(0));
-                if (newCoach.getGender()!='F'&&newCoach.getGender()!='f'&&newCoach.getGender()!='M'&&newCoach.getGender()!='m') {
-                    throw new IllegalArgumentException("""
-                                                       -----------------------
-                                                       PLEASE, ENTER F OR M!!
-                                                       -----------------------
-                                                       Enter your Gender: """
-                    );
+            System.out.print("Enter your Email: ");
+            newCoach.setEmail(input.next());
+
+            if (newCoach.getEmail().indexOf('@') > 0) {
+//            System.out.print("Enter the Password of the new coach: ");
+//            input.nextLine();
+//            newCoach.setPassword(input.nextLine());
+//            System.out.print("Enter the Gender of the new coach: ");
+//            while (true) {
+//                try {
+//                    newCoach.setGender(input.next().charAt(0));
+//                    if (newCoach.getGender()!='F'&&newCoach.getGender()!='f'&&newCoach.getGender()!='M'&&newCoach.getGender()!='m') {
+//                        throw new IllegalArgumentException("""
+//                                                       -----------------------
+//                                                       PLEASE, ENTER F OR M!!
+//                                                       -----------------------
+//                                                       Enter your Gender:
+//                                                       """
+//                        );
+//                    }
+//                    break;
+//                } catch (IllegalArgumentException e) {
+//                    System.err.println(e.getMessage());
+//                }
+//            }
+//            System.out.print("Enter the Address of the new coach: ");
+//            input.nextLine();
+//            newCoach.setAddress(input.nextLine());
+//            System.out.print("Enter the Phone Number of the new coach: ");
+//            newCoach.setPhoneNumber(input.next());
+//            System.out.print("Enter the Working Hours of the new coach: ");
+//            newCoach.setWorkingHours(input.nextFloat());
+//            coaches.add(newCoach);
+//            System.out.println("""
+//                               Congratulation!!
+//                               This Coach has been added successfuly.
+//                               --------------------------------------""");
+//            System.out.println("And his/her ID is: " + newCoach.getID());
+//            System.out.println("----------------------------------------------------");
+//            break;
+                System.out.print("Enter your name: ");
+                input.nextLine();
+                newCoach.setName(input.nextLine());
+                System.out.print("Enter your Password: ");
+                newCoach.setPassword(input.nextLine());
+                System.out.print("Enter your Gender (M/F): ");
+                while (true) {
+                    try {
+                        newCoach.setGender(input.next().charAt(0));
+                        if (newCoach.getGender() != 'F' && newCoach.getGender() != 'f' && newCoach.getGender() != 'M' && newCoach.getGender() != 'm') {
+                            throw new IllegalArgumentException("""
+                                    -----------------------
+                                    PLEASE, ENTER F OR M!!
+                                    -----------------------
+                                    Enter your Gender: """
+                            );
+                        }
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        System.err.println(e.getMessage());
+                    }
                 }
-                break;
-            } catch (IllegalArgumentException e) {
-                System.err.println(e.getMessage());
+                System.out.print("Enter your Phone Number: ");
+                newCoach.setPhoneNumber(input.next());
+                System.out.print("Enter your Working Hours: ");
+                newCoach.setWorkingHours(input.nextFloat());
+                System.out.print("Enter your Address: ");
+                input.nextLine();
+                newCoach.setAddress(input.nextLine());
+                if (admin.add(newCoach, coaches)) {
+                    coaches.add(newCoach);
+                    System.out.println("""
+                            ------------------------------------------------
+                            Congratulation!!
+                            Now, you have an account""");
+                    System.out.println("And your ID is: " + newCoach.getID());
+                    System.out.println("""
+                            ------------------------------------------------
+                            Please, Log-In to can access your functionality.
+                            ------------------------------------------------""");
+
+
+                } else {
+                    System.out.println("""
+                            You have already an Account!!
+                            Please, Log-In.""");
+                }
+          break;
+            } else {
+                System.out.println("""
+                        ------------------
+                        INVALID EMAIL!!
+                        PLEASE, try again.
+                        ------------------""");
             }
         }
-        System.out.print("Enter your Phone Number: ");
-        newCoach.setPhoneNumber(input.next());
-        System.out.print("Enter your Working Hours: ");
-        newCoach.setWorkingHours(input.nextFloat());
-        System.out.print("Enter your Address: ");
-        input.nextLine();
-        newCoach.setAddress(input.nextLine());
-        if (admin.add(newCoach, coaches)) {
-            coaches.add(newCoach);
-            System.out.println("""
-                               ------------------------------------------------
-                               Congratulation!!
-                               Now, you have an account""");
-            System.out.println("And your ID is: " + newCoach.getID());
-            System.out.println("""
-                    ------------------------------------------------
-                    Please, Log-In to can access your functionality.
-                    ------------------------------------------------""");
-        } else {
-            System.out.println("""
-                    You have already an Account!!
-                    Please, Log-In.""");
-        }
+//        System.out.print("Enter your name: ");
+//        input.nextLine();
+//        newCoach.setName(input.nextLine());
+//        System.out.print("Enter your Password: ");
+//        newCoach.setPassword(input.nextLine());
+//        System.out.print("Enter your Gender (M/F): ");
+//        while (true) {
+//            try {
+//                newCoach.setGender(input.next().charAt(0));
+//                if (newCoach.getGender()!='F'&&newCoach.getGender()!='f'&&newCoach.getGender()!='M'&&newCoach.getGender()!='m') {
+//                    throw new IllegalArgumentException("""
+//                                                       -----------------------
+//                                                       PLEASE, ENTER F OR M!!
+//                                                       -----------------------
+//                                                       Enter your Gender: """
+//                    );
+//                }
+//                break;
+//            } catch (IllegalArgumentException e) {
+//                System.err.println(e.getMessage());
+//            }
+//        }
+//        System.out.print("Enter your Phone Number: ");
+//        newCoach.setPhoneNumber(input.next());
+//        System.out.print("Enter your Working Hours: ");
+//        newCoach.setWorkingHours(input.nextFloat());
+//        System.out.print("Enter your Address: ");
+//        input.nextLine();
+//        newCoach.setAddress(input.nextLine());
+//        if (admin.add(newCoach, coaches)) {
+//            coaches.add(newCoach);
+//            System.out.println("""
+//                               ------------------------------------------------
+//                               Congratulation!!
+//                               Now, you have an account""");
+//            System.out.println("And your ID is: " + newCoach.getID());
+//            System.out.println("""
+//                    ------------------------------------------------
+//                    Please, Log-In to can access your functionality.
+//                    ------------------------------------------------""");
+//        } else {
+//            System.out.println("""
+//                    You have already an Account!!
+//                    Please, Log-In.""");
+//        }
 
 //        input.nextLine();
     }

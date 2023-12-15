@@ -198,7 +198,7 @@ public class Main {
                         }
                         else if (choice == 5) { // To display Customers Subscribed in a specific day or month.
                             do {
-                                ourGym.getAdmin().displayCustemersSubscribed(ourGym.getCustomers(), ourGym.getSubscriptions());
+                                ourGym.getAdmin().displayCustomersSubscribed(ourGym.getCustomers(), ourGym.getSubscriptions());
                                 System.out.println("Do you want to show customers in another date (y/n)?");
                                 repeat = input.next().charAt(0);
                             } while (repeat == 'y' || repeat == 'Y');

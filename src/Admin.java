@@ -516,8 +516,8 @@ public class Admin {
       }
     }
 
-    // Display Custemers Subscribed in specific Date
-    public void displayCustemersSubscribed(ArrayList<Customer> customers, ArrayList<Subscription> subscriptions) {
+    // Display Customers Subscribed in specific Date
+    public void displayCustomersSubscribed(ArrayList<Customer> customers, ArrayList<Subscription> subscriptions) {
 
         int choice, count = 0;
         String date;
