@@ -274,9 +274,9 @@ public class Gym {
             System.out.println("""
                     You have already an Account!!
                     Please, Log-In.""");
-//            return false;
         }
 
+//        input.nextLine();
     }
 
     public void signUpCustomer() {

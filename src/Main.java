@@ -279,7 +279,13 @@ public class Main {
                     }
                     if (choice == 2 || login) {
                         int coachIndex = ourGym.logInCoach();
-                        if (coachIndex != -1 && ourGym.getCoaches().get(coachIndex).getCustomersSize()!=0) {
+                        if (coachIndex != -1) {
+                            if (ourGym.getCoaches().get(coachIndex).getCustomers().isEmpty()) {
+                                System.out.println("You do not have any Customers yet!");
+                                System.out.println("Thank you");
+                                System.out.println("-------------------------------------------------");
+                                break;
+                            }
                             while (true) {
                                 System.out.println("""
                                         Press:
@@ -347,14 +353,10 @@ public class Main {
                                     break;
                                 }
                             }
-                            break;
+//                            break;
                         }
-                        else if (ourGym.getCoaches().get(coachIndex).getCustomersSize()==0) {
-                            System.out.println("You Do not have any Customers yet!");
-                            System.out.println("Thank you");
-                            System.out.println("-------------------------------------------------");
-                            //continue;
-                        } else {
+                        else {
+//                            input.nextLine();
                             ourGym.signUpCoach();
                             continue;
                         }
@@ -374,22 +376,25 @@ public class Main {
                                 break;
                             }
                             else {
-                                Main.invalidMsg();
+                                invalidMsg();
                                 continue;
                             }
                         } while (true);
+                        if (choice==2){
+                            break;
+                        }
                     }
 
                 }
-                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
-                repeat = input.next().charAt(0);
-                if (repeat!='y'&& repeat!='Y'){
-                    continue;
-                }
-                else {
-                    ourGym.logOut();
-                    break;
-                }
+//                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
+//                repeat = input.next().charAt(0);
+//                if (repeat!='y'&& repeat!='Y'){
+//                    continue;
+//                }
+//                else {
+//                    ourGym.logOut();
+//                    break;
+//                }
             }
             else if (choice == 3) { // If the user is a Customer.
                 while (true) {
@@ -483,22 +488,33 @@ public class Main {
                             continue;
                         }
                     }
-
-
                     else {
                         invalidMsg();
                         continue;
                     }
                 }
-                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
-                repeat = input.next().charAt(0);
-                if (repeat!='y'&& repeat!='Y'){
-                    continue;
-                }
-                else {
-                    ourGym.logOut();
-                    break;
-                }
+//                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
+//                repeat = input.next().charAt(0);
+//                if (repeat!='y'&& repeat!='Y'){
+//                    continue;
+//                }
+//                else {
+//                    ourGym.logOut();
+//                    break;
+//                }
+            }
+            else{
+                invalidMsg();
+                continue;
+            }
+            System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
+            repeat = input.next().charAt(0);
+            if (repeat!='y'&& repeat!='Y'){
+                continue;
+            }
+            else {
+                ourGym.logOut();
+                break;
             }
         }
     }
