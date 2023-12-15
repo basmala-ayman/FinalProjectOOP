@@ -17,7 +17,7 @@ public class SearchDate {
         } catch (ParseException dateException) {
             throw new IllegalArgumentException("""
                                                Invalid date format!!
-                                               Please, enter date in the format (dd-MM-yyyy): """);
+                                               Please, enter date in the format (dd-MM-yyyy):""");
         }
     }
 
@@ -28,8 +28,10 @@ public class SearchDate {
             return date.parse(InputDate);
         } catch (ParseException dateException) {
             throw new IllegalArgumentException("""
+                                               -------------------------------------------
                                                Invalid date format!!
-                                               Please, enter date in the format (MM-yyyy): """);
+                                               Please, enter date in the format (MM-yyyy):
+                                               -------------------------------------------""");
         }
     }
 
@@ -73,7 +75,7 @@ public class SearchDate {
     public static int getMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return calendar.get(Calendar.MONTH);
+        return (calendar.get(Calendar.MONTH))+1;
     }
 
     public static int getYear(Date date) {

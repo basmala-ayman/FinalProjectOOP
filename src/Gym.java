@@ -117,7 +117,7 @@ public class Gym {
                 if (count >= 3) {
                     System.out.println("""
                                        -------------------------
-                                       YOUR EMAIL IS NOT FOUND!!
+                                       YOUR ID IS NOT FOUND!!
                                        PLEASE, Sign Up.
                                        -------------------------""");
                     return coachIndex;
@@ -361,7 +361,8 @@ public class Gym {
         }
         if (found) {
             System.out.println("Total Income for the Gym in month (" + month + '-' + year + ") is: " + finalIncome);
-        } else {
+        }
+        else {
             System.out.println("""
                                ------------------
                                INVALID MONTH!!
