@@ -229,31 +229,31 @@ public class Customer extends Person {
 
             System.out.print("Enter your Total Weight: ");
             body=input.nextFloat();
-            System.out.print("Enter the Unit (prefers \"m\"): ");
+            System.out.print("Enter the Unit (prefers \"Kg\"): ");
             unit=input.next();
             newInBody.setTotalWeight(body, unit);
 
             System.out.print("Enter your Body Fat Mass: ");
             body=input.nextFloat();
-            System.out.print("Enter the Unit (prefers \"m\"): ");
+            System.out.print("Enter the Unit (prefers \"Kg\"): ");
             unit=input.next();
             newInBody.setBodyFatMass(body, unit);
 
             System.out.print("Enter your Minerals: ");
             body=input.nextFloat();
-            System.out.print("Enter the Unit (prefers \"m\"): ");
+            System.out.print("Enter the Unit (prefers \"Kg\"): ");
             unit=input.next();
             newInBody.setMinerals(body, unit);
 
             System.out.print("Enter your Total Body Water: ");
             body=input.nextFloat();
-            System.out.print("Enter the Unit (prefers \"m\"): ");
+            System.out.print("Enter the Unit (prefers \"Kg\"): ");
             unit=input.next();
             newInBody.setTotalBodyWater(body, unit);
 
             System.out.print("Enter your Protein: ");
             body=input.nextFloat();
-            System.out.print("Enter the Unit (prefers \"m\"): ");
+            System.out.print("Enter the Unit (prefers \"Kg\"): ");
             unit=input.next();
             newInBody.setProtein(body, unit);
 
