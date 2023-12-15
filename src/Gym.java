@@ -261,42 +261,6 @@ public class Gym {
             newCoach.setEmail(input.next());
 
             if (newCoach.getEmail().indexOf('@') > 0) {
-//            System.out.print("Enter the Password of the new coach: ");
-//            input.nextLine();
-//            newCoach.setPassword(input.nextLine());
-//            System.out.print("Enter the Gender of the new coach: ");
-//            while (true) {
-//                try {
-//                    newCoach.setGender(input.next().charAt(0));
-//                    if (newCoach.getGender()!='F'&&newCoach.getGender()!='f'&&newCoach.getGender()!='M'&&newCoach.getGender()!='m') {
-//                        throw new IllegalArgumentException("""
-//                                                       -----------------------
-//                                                       PLEASE, ENTER F OR M!!
-//                                                       -----------------------
-//                                                       Enter your Gender:
-//                                                       """
-//                        );
-//                    }
-//                    break;
-//                } catch (IllegalArgumentException e) {
-//                    System.err.println(e.getMessage());
-//                }
-//            }
-//            System.out.print("Enter the Address of the new coach: ");
-//            input.nextLine();
-//            newCoach.setAddress(input.nextLine());
-//            System.out.print("Enter the Phone Number of the new coach: ");
-//            newCoach.setPhoneNumber(input.next());
-//            System.out.print("Enter the Working Hours of the new coach: ");
-//            newCoach.setWorkingHours(input.nextFloat());
-//            coaches.add(newCoach);
-//            System.out.println("""
-//                               Congratulation!!
-//                               This Coach has been added successfuly.
-//                               --------------------------------------""");
-//            System.out.println("And his/her ID is: " + newCoach.getID());
-//            System.out.println("----------------------------------------------------");
-//            break;
                 System.out.print("Enter your name: ");
                 input.nextLine();
                 newCoach.setName(input.nextLine());
@@ -557,13 +521,12 @@ public class Gym {
                     System.out.println("You should subscribe first to access our functionalities!");
                     customers.get(customers.size() - 1).addSubscription(coaches);
                     customers.get(customers.size() - 1).addInBody();
-//            return true;
                 } else {
                     System.out.println("""
                             You have already an Account!!
                             Please, Log-In.""");
-//            return false;
                 }
+                break;
             }
             else {
                 System.out.println("""
@@ -573,7 +536,6 @@ public class Gym {
                                    ------------------""");
             }
         }
-
 //
 //        System.out.print("Enter your Name: ");
 //        newCustomer.setName(input.nextLine());

@@ -259,7 +259,7 @@ public class InBody {
     private static float CalculateBMI(float totalWeight, float height) {
         float BMI = (totalWeight) / (height * height); //BMI = Body Mass Index
 
-        System.out.println("\nYour BMI value: " + BMI);
+        System.out.println("Your BMI value: " + BMI);
 
         if (BMI < 18.5) {
             System.out.println("You are underweight!");
@@ -270,7 +270,6 @@ public class InBody {
         } else {
             System.out.println("You are obese!");
         }
-
         return BMI;
     }
 

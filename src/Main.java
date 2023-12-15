@@ -409,7 +409,7 @@ public class Main {
             }
             else if (choice == 3) { // If the user is a Customer.
                 while (true) {
-                    boolean login2 = false;
+                    boolean login = false;
                     System.out.println("""
                             Press:
                             ------
@@ -420,17 +420,19 @@ public class Main {
                     choice= input.nextInt();
                     if (choice==1){
                         ourGym.signUpCustomer();
-                        login2 = true;
+                        login = true;
                     }
-                    else if (choice == 2 || login2) {
-                        int customerIndex = ourGym.logInCustomer();
-                        if(ourGym.getCustomers().get(customerIndex).getSubscriptions().size()==0){
-                            System.out.println("You have to subsrcibe first!");
-                            System.out.println("-------------------------------------------------");
-                            ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
-                            ourGym.getCustomers().get(customerIndex).addInBody();
-                        }
-                        if (customerIndex != -1&& ourGym.getCustomers().get(customerIndex).getSubscriptions().size()!=0) {
+                    if (choice == 2 || login) {
+                        while (true){
+                            int customerIndex = ourGym.logInCustomer();
+                            if(ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()){
+                                System.out.println("You have to subscribe first!");
+                                System.out.println("-------------------------------------------------");
+                                ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
+                                ourGym.getCustomers().get(customerIndex).addInBody();
+                                continue;
+                            }
+                            if (customerIndex != -1 && !ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()) {
                             while (true) {
                                 System.out.println("""
                                     Press:
@@ -494,10 +496,10 @@ public class Main {
                             }
                             break;
                         }
-
-                        else {
-                            ourGym.signUpCustomer();
-                            continue;
+                            else {
+                                ourGym.signUpCustomer();
+                                continue;
+                            }
                         }
                     }
                     else if(choice==3) {
