@@ -220,24 +220,46 @@ public class Customer extends Person {
             String unit;
             InBody newInBody = new InBody();
             newInBody.setInBodyDate(date);
+
             System.out.print("Enter your Height: ");
             body=input.nextFloat();
             System.out.print("Enter the Unit (prefers \"m\"): ");
             unit=input.next();
             newInBody.setHeight(body, unit);
-            System.out.print("Enter your Total Weight and its Unit (prefers \"kg\"): ");
-            newInBody.setTotalWeight(input.nextFloat(), input.next());
-            System.out.print("Enter your Body Fat Mass and its Unit (prefers \"kg\"): ");
-            newInBody.setBodyFatMass(input.nextFloat(), input.next());
-            System.out.print("Enter your Minerals and its Unit (prefers \"kg\"): ");
-            newInBody.setMinerals(input.nextFloat(), input.next());
-            System.out.print("Enter your Total Body Water and its Unit (prefers \"kg\"): ");
-            newInBody.setTotalBodyWater(input.nextFloat(), input.next());
-            System.out.print("Enter your Protein and its Unit (prefers \"kg\"): ");
-            newInBody.setProtein(input.nextFloat(), input.next());
+
+            System.out.print("Enter your Total Weight: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setTotalWeight(body, unit);
+
+            System.out.print("Enter your Body Fat Mass: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setBodyFatMass(body, unit);
+
+            System.out.print("Enter your Minerals: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setMinerals(body, unit);
+
+            System.out.print("Enter your Total Body Water: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setTotalBodyWater(body, unit);
+
+            System.out.print("Enter your Protein: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setProtein(body, unit);
+
             newInBody.setGender(this.getGender());
             this.inBodies.add(newInBody);
-            System.out.println("You have entered your inbody information successfully");
+            System.out.println("You have entered your In-Body information successfully");
             System.out.println("-----------------------------------------------------");
         }else{
             System.out.println("Now, you are not allowed to perform another in-body scan yet.");
