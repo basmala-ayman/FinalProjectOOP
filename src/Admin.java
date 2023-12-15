@@ -231,7 +231,7 @@ public class Admin {
             System.out.println(coaches.get(coachIndex).getName() + " is deleted.");
             System.out.println("------------------------------------------");
             coaches.remove(coachIndex);
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                ------------
                                INVALID ID!!
@@ -254,7 +254,7 @@ public class Admin {
             System.out.println(customers.get(customerIndex).getName() + " is deleted.");
             System.out.println("------------------------------------------");
             customers.remove(customerIndex);
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                ------------
                                INVALID ID!!
@@ -277,7 +277,7 @@ public class Admin {
             System.out.println(equipments.get(equipmentIndex).getName() + " is deleted.");
             System.out.println("------------------------------------------");
             equipments.remove(equipmentIndex);
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                --------------
                                INVALID CODE!!
@@ -355,7 +355,7 @@ public class Admin {
                     break;
                 }
             }
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                ------------
                                INVALID ID!!
@@ -427,7 +427,7 @@ public class Admin {
                     break;
                 }
             }
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                ------------
                                INVALID ID!!
@@ -483,7 +483,7 @@ public class Admin {
                     break;
                 }
             }
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
                                --------------
                                INVALID CODE!!
@@ -605,7 +605,7 @@ public class Admin {
         }
         try {
             coaches.get(coachIndex).displayCustomers();
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("Invalid ID!!");
         }
     }
