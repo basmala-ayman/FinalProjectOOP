@@ -17,7 +17,8 @@ public class Main {
         int choice;
         char repeat;
 
-        ourGym.subscriptionFile();
+//        ourGym.subscriptionFile();
+
 //        for (int i=0;i<ourGym.getSubscriptions().size();i++){
 //            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
 //                    +ourGym.getSubscriptions().get(i).getCustomerId() +" "
