@@ -254,7 +254,6 @@ public class Gym {
         System.out.println("""
                 Enter your information to Sign Up:
                 -----------------------------------""");
-
         System.out.print("Enter your Email: ");
         newCoach.setEmail(input.next());
         System.out.print("Enter your name: ");

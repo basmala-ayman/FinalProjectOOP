@@ -216,10 +216,15 @@ public class Customer extends Person {
 //        newInBody.setInBodyDate(SearchDate.parseDate(input.next()));
         Date date=SearchDate.parseDate(startDate);
         if(performInBodyScan(date)){
+            float body;
+            String unit;
             InBody newInBody = new InBody();
             newInBody.setInBodyDate(date);
-            System.out.print("Enter your Height and its Unit (prefers \"m\"): ");
-            newInBody.setHeight(input.nextFloat(), input.next());
+            System.out.print("Enter your Height: ");
+            body=input.nextFloat();
+            System.out.print("Enter the Unit (prefers \"m\"): ");
+            unit=input.next();
+            newInBody.setHeight(body, unit);
             System.out.print("Enter your Total Weight and its Unit (prefers \"kg\"): ");
             newInBody.setTotalWeight(input.nextFloat(), input.next());
             System.out.print("Enter your Body Fat Mass and its Unit (prefers \"kg\"): ");
@@ -239,5 +244,4 @@ public class Customer extends Person {
 
         }
     }
-
 }
