@@ -132,7 +132,8 @@ public class Admin {
                 System.out.println("And his/her ID is: " + newCoach.getID());
                 System.out.println("----------------------------------------------------");
                 break;
-            } else {
+            }
+            else {
                 System.out.println("""
                                    ------------------
                                    INVALID EMAIL!!
@@ -615,6 +616,7 @@ public class Admin {
         String date;
         System.out.print("Enter the month in format (MM-yyyy) you want to know the GYM Income in it: ");
         date = input.next();
+//        System.out.println(SearchDate.getMonth(SearchDate.parseDateMonth(date));
         ourGym.displayIncome(SearchDate.getMonth(SearchDate.parseDateMonth(date)), SearchDate.getYear(SearchDate.parseDateMonth(date)));
     }
 

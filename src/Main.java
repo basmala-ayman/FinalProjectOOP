@@ -17,7 +17,7 @@ public class Main {
         int choice;
         char repeat;
 
-//        ourGym.subscriptionFile();
+        ourGym.subscriptionFile();
 //        for (int i=0;i<ourGym.getSubscriptions().size();i++){
 //            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
 //                    +ourGym.getSubscriptions().get(i).getCustomerId() +" "
@@ -172,9 +172,11 @@ public class Main {
                                         System.out.println("Do you want to edit another Coach (Y/N)?");
                                         repeat = input.next().charAt(0);
                                     } while (repeat == 'y' || repeat == 'Y');
-                                } else if (choice==4) {
+                                }
+                                else if (choice == 4) {
                                     break;
-                                } else {
+                                }
+                                else {
                                     invalidMsg();
                                     continue;
                                 }
@@ -220,7 +222,6 @@ public class Main {
                         }
                         else if (choice == 8) { // To display Coaches Sorted Descending.
                             ourGym.getAdmin().displayCoachesSortedDesc(ourGym.getCoaches());
-//                            break;
                         }
                         else if(choice==9){
                             break;
