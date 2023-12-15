@@ -227,9 +227,9 @@ public class Gym {
         System.out.print("Enter your name: ");
         newCoach.setName(input.nextLine());
         System.out.print("Enter your Email: ");
-        newCoach.setEmail(input.nextLine());
+        newCoach.setEmail(input.next());
         System.out.print("Enter your Password: ");
-        //input.nextLine();
+        input.nextLine();
         newCoach.setPassword(input.nextLine());
         System.out.print("Enter your Gender (M/F): ");
         while (true) {
