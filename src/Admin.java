@@ -496,6 +496,7 @@ public class Admin {
         int customerIndex = -1;
         System.out.print("Enter the Customer ID to show his/her subscription history: ");
         customerId = input.nextInt();
+      if(!customers.isEmpty()){
         for (int i = 0; i < customers.size(); i++) {
             if (customers.get(i).getID() == customerId) {
                 customerIndex = i;
@@ -504,9 +505,13 @@ public class Admin {
         }
         try {
             customers.get(customerIndex).displaySubscribtionHistory();
-        } catch (ArrayIndexOutOfBoundsException exp) {
+        } catch (IndexOutOfBoundsException exp) {
             System.out.println("INVALID ID!!");
         }
+    }
+      else {
+          System.out.println("No added customers yet!");
+      }
     }
 
     // Display Custemers Subscribed in specific Date
@@ -522,6 +527,7 @@ public class Admin {
                            ------
                            1 --> to enter a specific day.
                            2 --> to enter a specific month.
+                           3 --> Back.
                            ---------------------------------""");
             choice = input.nextInt();
             if (choice == 1) {
@@ -542,7 +548,8 @@ public class Admin {
                     System.out.println("No Subscriptions in this day: " + date);
                     System.out.println("--------------------------------------------");
                 }
-            } else if (choice == 2) {
+            }
+            else if (choice == 2) {
                 System.out.print("Enter the month in format (MM-yyyy): ");
                 date = input.next();
                 System.out.println("Customers are subscribed in month (" + date + "):");
@@ -561,6 +568,13 @@ public class Admin {
                     System.out.println("----------------------------------------------");
                 }
 
+            }
+            else if (choice==3) {
+                break;
+            }
+            else {
+                Main.invalidMsg();
+                continue;
             }
         }
 
