@@ -322,7 +322,7 @@ public class Gym {
                                Now, you have an account""");
             System.out.println("And your ID is: " + newCustomer.getID());
             System.out.println("------------------------------------------------");
-            System.out.println("You should to subscribe first to can access our fancutionalty");
+            System.out.println("You should subscribe first to access our functionalities!");
             customers.get(customers.size()-1).addSubscription(coaches);
             customers.get(customers.size()-1).addInBody();
 //            return true;
