@@ -494,6 +494,7 @@ public class Admin {
     public void displaySubscriptionHistory(ArrayList<Customer> customers) {
         int customerId;
         int customerIndex = -1;
+
         System.out.print("Enter the Customer ID to show his/her subscription history: ");
         customerId = input.nextInt();
       if(!customers.isEmpty()){
@@ -519,6 +520,7 @@ public class Admin {
 
         int choice, count = 0;
         String date;
+        char repeat;
         while (true) {
             System.out.println("""
                            Customers that subscribed to the gym in a specific day or month.
@@ -576,6 +578,14 @@ public class Admin {
                 Main.invalidMsg();
                 continue;
             }
+
+
+            do {
+                //ourGym.getAdmin().displayGymIncome(ourGym);
+                System.out.print("Do you want to show the customers that subscribed to the gym again(y/n): ");
+                repeat = input.next().charAt(0);
+            } while (repeat == 'y' || repeat == 'Y');
+            break;
         }
 
     }
