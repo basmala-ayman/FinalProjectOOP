@@ -51,6 +51,7 @@ public class Main {
                                 6 --> To display Customers of a specific Coach.
                                 7 --> To display Gym Income in a specific month.
                                 8 --> To display Coaches Sorted Descending.
+                                9 --> Back.
                                 ------------------------------------------------------------------""");
                         choice = input.nextInt();
                         if (choice == 1) { // to add
@@ -221,6 +222,9 @@ public class Main {
                             ourGym.getAdmin().displayCoachesSortedDesc(ourGym.getCoaches());
 //                            break;
                         }
+                        else if(choice==9){
+                            break;
+                        }
                         else {
                             invalidMsg();
                             continue;
@@ -277,6 +281,7 @@ public class Main {
                             ------
                             1 --> To Sign Up, if you do not have an account.
                             2 --> To Log In, if you already have an account.
+                            3 --> Back.
                             -------------------------------------------------""");
                     choice= input.nextInt();
                     if (choice==1){
@@ -391,7 +396,9 @@ public class Main {
                             break;
                         }
                     }
-
+                    else if (choice==3) {
+                        break;
+                    }
                 }
 //                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
 //                repeat = input.next().charAt(0);
@@ -411,13 +418,14 @@ public class Main {
                             ------
                             1 --> To Sign Up, if you do not have an account.
                             2 --> To Log In, if you already have an account.
+                            3 --> Back.
                             -------------------------------------------------""");
                     choice= input.nextInt();
                     if (choice==1){
                         ourGym.signUpCustomer();
                         login2 = true;
                     }
-                    if (choice == 2 || login2) {
+                    else if (choice == 2 || login2) {
                         int customerIndex = ourGym.logInCustomer();
                         if(ourGym.getCustomers().get(customerIndex).getSubscriptions().size()==0){
                             System.out.println("You have to subsrcibe first!");
@@ -494,6 +502,9 @@ public class Main {
                             ourGym.signUpCustomer();
                             continue;
                         }
+                    }
+                    else if(choice==3) {
+                        break;
                     }
                     else {
                         invalidMsg();

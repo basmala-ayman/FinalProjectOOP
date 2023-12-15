@@ -224,12 +224,13 @@ public class Gym {
         System.out.println("""
                 Enter your information to Sign Up:
                 -----------------------------------""");
-        System.out.print("Enter your name: ");
-        newCoach.setName(input.nextLine());
+
         System.out.print("Enter your Email: ");
         newCoach.setEmail(input.next());
-        System.out.print("Enter your Password: ");
+        System.out.print("Enter your name: ");
         input.nextLine();
+        newCoach.setName(input.nextLine());
+        System.out.print("Enter your Password: ");
         newCoach.setPassword(input.nextLine());
         System.out.print("Enter your Gender (M/F): ");
         while (true) {
@@ -248,14 +249,13 @@ public class Gym {
                 System.err.println(e.getMessage());
             }
         }
-        System.out.print("Enter your Address: ");
-        input.nextLine();
-        newCoach.setAddress(input.nextLine());
         System.out.print("Enter your Phone Number: ");
         newCoach.setPhoneNumber(input.next());
         System.out.print("Enter your Working Hours: ");
         newCoach.setWorkingHours(input.nextFloat());
-
+        System.out.print("Enter your Address: ");
+        input.nextLine();
+        newCoach.setAddress(input.nextLine());
         if (admin.add(newCoach, coaches)) {
             coaches.add(newCoach);
             System.out.println("""
