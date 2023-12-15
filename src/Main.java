@@ -202,7 +202,6 @@ public class Main {
                                 System.out.println("Do you want to show customers in another date (y/n)?");
                                 repeat = input.next().charAt(0);
                             } while (repeat == 'y' || repeat == 'Y');
-//                            break;
                         }
                         else if (choice == 6) { // To display Customers of a specific Coach.
                             do {

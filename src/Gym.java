@@ -66,7 +66,7 @@ public class Gym {
     public void subscriptionFile() throws IOException {
 //        ArrayList<Customer> people=new ArrayList<>();
 
-        File file= new File("D://SubscriptionFile.txt");
+        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//SubscriptionFile";
 
         BufferedReader reader = null;
         String line2 = "";
