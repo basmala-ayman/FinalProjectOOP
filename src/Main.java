@@ -61,6 +61,7 @@ public class Main {
                                         1 --> To add a Coach.
                                         2 --> To add a Customer.
                                         3 --> To add an Equipment.
+                                        4 --> back
                                         -----------------------------""");
                                 choice = input.nextInt();
                                 if (choice == 1) { // To add a Coach.
@@ -84,6 +85,9 @@ public class Main {
                                         repeat = input.next().charAt(0);
                                     } while (repeat == 'y' || repeat == 'Y');
                                 }
+                                else if(choice==4){
+                                   break;
+                                }
                                 else {
                                     invalidMsg();
                                     continue;
@@ -104,6 +108,7 @@ public class Main {
                                         1 --> To delete a Coach."
                                         2 --> To delete a Customer."
                                         3 --> To delete an Equipment."
+                                        4 --> Back
                                         ------------------------------""");
                                 choice = input.nextInt();
                                 switch (choice) {
@@ -115,6 +120,8 @@ public class Main {
                                         break;
                                     case 3: // To delete an Equipment.
                                         ourGym.getAdmin().deleteEquipment(ourGym.getEquipments());
+                                        break;
+                                    case 4:
                                         break;
                                     default:
                                         invalidMsg();
@@ -137,9 +144,10 @@ public class Main {
                                         1 --> To edit a Coach.
                                         2 --> To edit a Customer.
                                         3 --> To edit an Equipment.
+                                        4 --> Back.
                                         ----------------------------""");
                                 choice = input.nextInt();
-                                if (choice < 1 || choice > 3) {
+                                if (choice < 1 || choice > 4) {
                                     invalidMsg();
                                     continue;
                                 }
@@ -163,8 +171,9 @@ public class Main {
                                         System.out.println("Do you want to edit another Coach (Y/N)?");
                                         repeat = input.next().charAt(0);
                                     } while (repeat == 'y' || repeat == 'Y');
-                                }
-                                else {
+                                } else if (choice==4) {
+                                    break;
+                                } else {
                                     invalidMsg();
                                     continue;
                                 }
@@ -244,6 +253,7 @@ public class Main {
                         }
                     }
                 }
+
                 else {
                     System.out.println("You are not an admin!");
                     System.out.println("-----------------------------");
