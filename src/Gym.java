@@ -10,10 +10,10 @@ public class Gym {
 
     private String name, address, phoneNumber;
     private Admin admin = new Admin();
-    private ArrayList<Equipment> equipments = new ArrayList();
-    private ArrayList<Coach> coaches = new ArrayList();
-    private ArrayList<Customer> customers = new ArrayList();
-    private ArrayList<Subscription> subscriptions = new ArrayList();
+    private ArrayList<Equipment> equipments = new ArrayList<>();
+    private ArrayList<Coach> coaches = new ArrayList<>();
+    private ArrayList<Customer> customers = new ArrayList<>();
+    private ArrayList<Subscription> subscriptions = new ArrayList<>();
 
     Scanner input = new Scanner(System.in);
 
@@ -142,14 +142,7 @@ public class Gym {
                     count++;
                     inBodyIndex++;
                 }
-//                newSubscription.setCoachId(Integer.parseInt(row[0]));
-//                newSubscription.setCustomerId(Integer.parseInt(row[1]));
-//                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
-//                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
-//                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
-//
-//                newSubscription.setMembershipPlan(newMembershipPlan);
-//                subscriptions.add(newSubscription);
+
             }
         }
         catch(Exception e) {
