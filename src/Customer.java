@@ -1,15 +1,14 @@
 
 
-import java.time.temporal.ChronoUnit;
+//import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-//import static testproject_24_11.MembershipPlan.parseDate;
 
 public class Customer extends Person {
 
-    private ArrayList<Subscription> subscriptions = new ArrayList();
-    private ArrayList<InBody> inBodies = new ArrayList();
+    private ArrayList<Subscription> subscriptions = new ArrayList<>();
+    private ArrayList<InBody> inBodies = new ArrayList<>();
 
     Scanner input = new Scanner(System.in);
 

@@ -1,12 +1,11 @@
-
-
 public abstract class Person {
 
     private static int count = 100;
     private final int ID;
 
+    private String email, name, password, address, phoneNumber;
+
     private char gender;
-    private String password, name, address, phoneNumber, email;
 
     public Person() {
         count++;

@@ -1,9 +1,4 @@
-
-
-
-
-//import java.text.ParseException;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -13,41 +8,24 @@ public class InBody {
     Scanner input = new Scanner(System.in);
     //Declare Variables
     private Date inBodyDate = new Date();
-
-    private float height, totalWeight, bodyFatMass, minerals, totalBodyWater, protein, IBW;  //IBW = Ideal body weight
-    private String unit;
+    private float height, totalWeight, bodyFatMass, minerals, totalBodyWater, protein;  //IBW = Ideal body weight
     private char gender;
-    String stringInBodyDate; // for display input the same formate
 
-    //methodes
-// Prase Date -> turn date from String to Date
-//    public static Date parseDate(String stringInBodyDate) {
-//
-//        try {
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//            return dateFormat.parse(stringInBodyDate);
-//        } catch (ParseException e) {
-//            throw new RuntimeException("Invalid date format, please enter in the \"dd-MM-yyyy\" format");
-//        }
-//
-//    }
+    // Setters
 
-    //setters
-//
-//    public void setUnit(String unit) {
-//        this.unit = unit;
-//    }
     public void setInBodyDate(Date inBodyDate) {
         this.inBodyDate = inBodyDate;
     }
 
     public void setHeight(float height, String unit) {
         if (height <= 0) {
-            throw new IllegalArgumentException("Height must be greater than 0");
+            throw new IllegalArgumentException("""
+                    -------------------------------
+                    Height must be greater than 0!!
+                    -------------------------------""");
         }
 
         // Convert height to meters based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "cm":
                 this.height = height / 100.0f; // Convert centimeters to meters
@@ -62,20 +40,25 @@ public class InBody {
                 this.height = height; // Assume the input is already meters
                 break;
             default:
+                // the input is not invalid
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again"""); // the input is not invalid
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
 
     public void setTotalWeight(float totalWeight, String unit) {
         if (totalWeight <= 0) {
-            throw new IllegalArgumentException("Total weight must be greater than 0");
+            throw new IllegalArgumentException("""
+                    -------------------------------------
+                    Total weight must be greater than 0!!
+                    -------------------------------------""");
         }
 
         // Convert weight to kilograms based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "lb":
                 this.totalWeight = totalWeight * 0.453592f; // Convert pounds to kilograms
@@ -88,19 +71,23 @@ public class InBody {
                 break;
             default:
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again""");
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
 
     public void setBodyFatMass(float bodyFatMass, String unit) {
         if (bodyFatMass <= 0) {
-            throw new IllegalArgumentException("Body Fat Mass must be greater than 0");
+            throw new IllegalArgumentException("""
+                    --------------------------------------
+                    Body Fat Mass must be greater than 0!!
+                    --------------------------------------""");
         }
 
         // Convert bodyFatMass to kilograms based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "lb":
                 this.bodyFatMass = bodyFatMass * 0.453592f; // Convert pounds to kilograms
@@ -113,19 +100,23 @@ public class InBody {
                 break;
             default:
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again""");
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
 
     public void setMinerals(float minerals, String unit) {
         if (minerals <= 0) {
-            throw new IllegalArgumentException("Minerals must be greater than 0");
+            throw new IllegalArgumentException("""
+                    ---------------------------------
+                    Minerals must be greater than 0!!
+                    ---------------------------------""");
         }
 
         // Convert minerals to kilograms based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "lb":
                 this.minerals = minerals * 0.453592f; // Convert pounds to kilograms
@@ -138,19 +129,23 @@ public class InBody {
                 break;
             default:
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again""");
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
 
     public void setTotalBodyWater(float totalBodyWater, String unit) {
         if (totalBodyWater <= 0) {
-            throw new IllegalArgumentException("Total Body Water must be greater than 0");
+            throw new IllegalArgumentException("""
+                    -----------------------------------------
+                    Total Body Water must be greater than 0!!
+                    -----------------------------------------""");
         }
 
         // Convert totalBodyWater to kilograms based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "lb":
                 this.totalBodyWater = totalBodyWater * 0.453592f; // Convert pounds to kilograms
@@ -163,19 +158,23 @@ public class InBody {
                 break;
             default:
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again""");
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
 
     public void setProtein(float protein, String unit) {
         if (protein <= 0) {
-            throw new IllegalArgumentException("Protein must be greater than 0");
+            throw new IllegalArgumentException("""
+                    --------------------------------
+                    Protein must be greater than 0!!
+                    --------------------------------""");
         }
 
         // Convert bodyFatMass to kilograms based on the unit
-//        setUnit(this.unit = unit);
         switch (unit.toLowerCase()) {
             case "lb":
                 this.protein = protein * 0.453592f; // Convert pounds to kilograms
@@ -188,8 +187,10 @@ public class InBody {
                 break;
             default:
                 System.out.println("""
+                                   ------------------
                                    INVALID UNIT!!
-                                   Please, try again""");
+                                   PLEASE, try again.
+                                   ------------------""");
                 break;
         }
     }
@@ -198,27 +199,14 @@ public class InBody {
         this.gender = gender;
     }
 
-//    public void setSpecificDate(Date specificDate) {
-//        this.specificDate = specificDate;
-//    }
-
-    //getters
-//    public String getStringInBodyDate() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        return dateFormat.format(inBodyDate);
-//    }
+    // Getters
 
     public Date getInBodyDate() {
-        // System.out.println(dateFormat.format(inBodyDate));
         return inBodyDate;
     }
 
     public float getHeight() {
         return height;
-    }
-
-    public String getUnit() {
-        return unit;
     }
 
     public float getTotalWeight() {
@@ -295,17 +283,17 @@ public class InBody {
 
         if (this.gender == 'F' || this.gender == 'f') {
             baseWeight = 45.5f;
-        } else {
+        }
+        else {
             baseWeight = 50.0f;
         }
 
         // Additional weight calculation (2.3 kg per inch over 5 feet)
-        //  1.524= 5 feet input meters
-        // 1 inches = 0.0254 meters
+        //  1.524 = 5 feet input meters.
+        // 1 inches = 0.0254 meters.
         float additionalWeight = 2.3f * ((height - 1.524f) / 0.0254f);
 
-        return baseWeight + additionalWeight;
-
+        return (baseWeight + additionalWeight);
     }
 
 }

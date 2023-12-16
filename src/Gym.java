@@ -109,16 +109,47 @@ public class Gym {
             reader = new BufferedReader(new FileReader(file));
             while((line2 = reader.readLine()) != null) {
                 String[] row = line2.split(",");
-                Subscription newSubscription=new Subscription();
-                MembershipPlan newMembershipPlan= new MembershipPlan();
-                newSubscription.setCoachId(Integer.parseInt(row[0]));
-                newSubscription.setCustomerId(Integer.parseInt(row[1]));
-                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
-                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
-                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
 
-                newSubscription.setMembershipPlan(newMembershipPlan);
-                subscriptions.add(newSubscription);
+                Customer newCustomer = new Customer();
+                ArrayList<Subscription> newSubscription = new ArrayList<>();
+                ArrayList<InBody> newInBodies = new ArrayList<>();
+
+//                MembershipPlan newMembershipPlan= new MembershipPlan();
+
+                newCustomer.setEmail((row[0]));
+                newCustomer.setName((row[1]));
+                newCustomer.setPassword((row[2]));
+                newCustomer.setAddress((row[3]));
+                newCustomer.setPhoneNumber(row[4]);
+                newCustomer.setGender(row[5].charAt(0));
+
+                int count=6;
+                int inBodyIndex = 0;
+                while (row[count] !=null){
+                    newInBodies.get(inBodyIndex).setInBodyDate(SearchDate.parseDate(row[count]));
+                    count++;
+                    newInBodies.get(inBodyIndex).setHeight(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    newInBodies.get(inBodyIndex).setTotalWeight(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    newInBodies.get(inBodyIndex).setBodyFatMass(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    newInBodies.get(inBodyIndex).setMinerals(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    newInBodies.get(inBodyIndex).setTotalBodyWater(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    newInBodies.get(inBodyIndex).setProtein(Float.parseFloat(row[count]),row[count++]);
+                    count++;
+                    inBodyIndex++;
+                }
+//                newSubscription.setCoachId(Integer.parseInt(row[0]));
+//                newSubscription.setCustomerId(Integer.parseInt(row[1]));
+//                newMembershipPlan.setStartDate(SearchDate.parseDate(row[2]));
+//                newMembershipPlan.setMonthlyPlan(Integer.parseInt(row[3]));
+//                newMembershipPlan.setMonthRegisterd(Integer.parseInt(row[4]));
+//
+//                newSubscription.setMembershipPlan(newMembershipPlan);
+//                subscriptions.add(newSubscription);
             }
         }
         catch(Exception e) {
