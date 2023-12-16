@@ -1,18 +1,21 @@
 public abstract class Person {
-
-    private static int count = 100;
-    private final int ID;
-
+    private int id;
+    private static int count =100;
     private String email, name, password, address, phoneNumber;
 
     private char gender;
 
-    public Person() {
+    public Person(){
         count++;
-        this.ID = count;
+        id = count;
     }
 
     // Setters
+//    public void setID(int id){
+//
+//        this.id = id;
+//    }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -39,7 +42,7 @@ public abstract class Person {
 
     // Getters
     public int getID() {
-        return ID;
+        return id;
     }
 
     public String getPassword() {

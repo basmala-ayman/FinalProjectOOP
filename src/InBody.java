@@ -8,7 +8,7 @@ public class InBody {
     Scanner input = new Scanner(System.in);
     //Declare Variables
     private Date inBodyDate = new Date();
-    private float height, totalWeight, bodyFatMass, minerals, totalBodyWater, protein;  //IBW = Ideal body weight
+    private float height, totalWeight, bodyFatMass, minerals, totalBodyWater, protein;
     private char gender;
 
     // Setters

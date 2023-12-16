@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -74,6 +71,7 @@ public class Gym {
         try {
             reader = new BufferedReader(new FileReader(file));
             while((line2 = reader.readLine()) != null) {
+
                 String[] row = line2.split(",");
 
                 Subscription newSubscription=new Subscription();
@@ -89,12 +87,44 @@ public class Gym {
                 newSubscription.setMembershipPlan(newMembershipPlan);
                 subscriptions.add(newSubscription);
             }
+//            Customer newCustomer=new Customer();
+//            boolean found = false;
+//            for (int i = 0; i < customers.size();i++){
+//                if (customers.get(i).getID()==newSubscription.getCustomerId()){
+//                    customers.get(i).setSubscriptions(newSubscription);
+//                    newCustomer=customers.get(i);
+//                    found = true;
+//                    break;
+//                }
+//            }
+//            if(found){
+//                for (int i = 0; i < coaches.size();i++){
+//                    if(coaches.get(i).getID()==newSubscription.getCoachId()){
+//                        coaches.get(i).setCustomers(newCustomer);
+//                    }
+//                }
+//            }
         }
         catch(Exception e) {
             e.printStackTrace();
         }
         finally {
             reader.close();
+        }
+    }
+
+    public void writeToSubsecriptionFile() throws IOException {
+//        ArrayList<Subscription> subscriptions2 = new ArrayList<>();
+//        subscriptions2 = getSubscriptions();
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//SubscriptionFile"));
+            for (Subscription s : subscriptions) {
+                writer.write(s.toString());
+                writer.newLine();
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -109,12 +139,10 @@ public class Gym {
             reader = new BufferedReader(new FileReader(file));
             while((line2 = reader.readLine()) != null) {
                 String[] row = line2.split(",");
+                int rowSize = row.length;
 
                 Customer newCustomer = new Customer();
-                ArrayList<Subscription> newSubscription = new ArrayList<>();
-                ArrayList<InBody> newInBodies = new ArrayList<>();
-
-//                MembershipPlan newMembershipPlan= new MembershipPlan();
+                ArrayList<InBody> newInbodies = new ArrayList<>();
 
                 newCustomer.setEmail((row[0]));
                 newCustomer.setName((row[1]));
@@ -123,25 +151,28 @@ public class Gym {
                 newCustomer.setPhoneNumber(row[4]);
                 newCustomer.setGender(row[5].charAt(0));
 
-                int count=6;
-                int inBodyIndex = 0;
-                while (row[count] !=null){
-                    newInBodies.get(inBodyIndex).setInBodyDate(SearchDate.parseDate(row[count]));
+//                subscriptionInCustomer(newCustomer);
+                int count = 6;
+                while (count<rowSize){
+                    InBody newInBody = new InBody();
+                    newInBody.setInBodyDate(SearchDate.parseDate(row[count]));
                     count++;
-                    newInBodies.get(inBodyIndex).setHeight(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setHeight(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    newInBodies.get(inBodyIndex).setTotalWeight(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setTotalWeight(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    newInBodies.get(inBodyIndex).setBodyFatMass(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setBodyFatMass(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    newInBodies.get(inBodyIndex).setMinerals(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setMinerals(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    newInBodies.get(inBodyIndex).setTotalBodyWater(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setTotalBodyWater(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    newInBodies.get(inBodyIndex).setProtein(Float.parseFloat(row[count]),row[count++]);
+                    newInBody.setProtein(Float.parseFloat(row[count]),row[++count]);
                     count++;
-                    inBodyIndex++;
+                    newInbodies.add(newInBody);
                 }
+                newCustomer.setInBodies(newInbodies);
+                customers.add(newCustomer);
 
             }
         }
@@ -150,6 +181,138 @@ public class Gym {
         }
         finally {
             reader.close();
+        }
+    }
+
+    public void writeToCustomerFile()throws IOException {
+//        ArrayList<Customer>customers2=new ArrayList<>();
+//        customers2=getCustomers();
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CustomerFile"));
+            for(Customer c:customers) {
+                writer.write(c.toString());
+                writer.newLine();
+            }
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+}
+
+//    private static void writeDataToFile(String filename, ArrayList<String> dataList) {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+//            for (String data : dataList) {
+//                writer.write(data);
+//                writer.newLine();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+
+    public void equipmentFile() throws IOException {
+
+        String file = "EquipmentFileTest";
+        BufferedReader reader = null;
+        String line2 = "";
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+
+            while((line2 = reader.readLine()) != null) {
+                String[] row = line2.split(",");
+                Equipment newEquipment = new Equipment();
+                newEquipment.setName(row[0]);
+                newEquipment.setCode(row[1]);
+                newEquipment.setQuantity(Integer.parseInt(row[2]));
+                equipments.add(newEquipment);
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            reader.close();
+        }
+    }
+
+    public void writeToEquipmentFile(ArrayList<Equipment> equipments) throws IOException {
+        System.out.println(equipments.size());
+        String file = "EquipmentFileTest";
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(file));
+            String line = "";
+            for (Equipment eq : equipments) {
+
+                String[] row = new String[3];
+                row[0] = eq.getName();
+                row[1] = eq.getCode();
+                row[2] = Integer.toString(eq.getQuantity());
+                line = String.join(",", row);
+//                System.out.println(line);
+                writer.write(line);
+                writer.newLine();
+//                System.out.println(line);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            writer.close();
+        }
+}
+
+    public void coachFile() throws IOException {
+
+        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CoachFile";
+
+        BufferedReader reader = null;
+        String line2 = "";
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+
+            while((line2 = reader.readLine()) != null) {
+                String[] row = line2.split(",");
+                Coach newCoach = new Coach();
+                newCoach.setEmail((row[0]));
+                newCoach.setName((row[1]));
+                newCoach.setPassword((row[2]));
+                newCoach.setAddress((row[3]));
+                newCoach.setPhoneNumber(row[4]);
+                newCoach.setGender(row[5].charAt(0));
+                newCoach.setWorkingHours(Float.parseFloat(row[6]));
+
+                coaches.add(newCoach);
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            reader.close();
+        }
+    }
+
+    public void writeToCoachFile()throws IOException {
+//        ArrayList<Coach>coach2=new ArrayList<>();
+//        coach2=getCoaches();
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CoachFile"));
+            for(    Coach co:coaches)
+            {
+                writer.write(co.toString());
+                writer.newLine();
+            }
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -187,7 +350,8 @@ public class Gym {
                            ------------------""");
             } else {
                 System.out.print("Enter your Password: ");
-                password = input.next();
+                input.nextLine();
+                password = input.nextLine();
                 if (password.equals(coaches.get(coachIndex).getPassword())) {
                     System.out.println("""
                                        -------------------------------------------
@@ -250,7 +414,8 @@ public class Gym {
             }
             else {
                 System.out.print("Enter your Password: ");
-                password = input.next();
+                input.nextLine();
+                password = input.nextLine();
                 if (password.equals(customers.get(customerIndex).getPassword())) {
                     System.out.println("""
                                        -------------------------------------------
@@ -562,6 +727,36 @@ public class Gym {
                 Thank You :)
                 Your Log-Out has been successfully.
                 -----------------------------------""");
+    }
+
+    public void subscriptionInCustomer(){
+        for (int i = 0; i<customers.size();i++){
+            ArrayList <Subscription> newSubscriptionList = new ArrayList<>();
+            for (int j = 0; j<subscriptions.size();j++) {
+                if (subscriptions.get(j).getCustomerId() == customers.get(i).getID()) {
+                    newSubscriptionList.add(subscriptions.get(j));
+                }
+            }
+            customers.get(i).setSubscriptions(newSubscriptionList);
+        }
+    }
+
+    public void subscriptionInCoach(){
+        for (int i = 0; i<coaches.size();i++){
+            ArrayList<Customer> newCustomerList = new ArrayList<>();
+//            ArrayList <Subscription> newSubscriptionList = new ArrayList<>();
+            for (int j = 0; j<subscriptions.size();j++) {
+                if (subscriptions.get(j).getCoachId() == coaches.get(i).getID()) {
+                    for (int k = 0; k<customers.size();k++){
+                        if(subscriptions.get(j).getCustomerId()==customers.get(k).getID()){
+                            newCustomerList.add(customers.get(k));
+                        }
+                    }
+//                    newSubscriptionList.add(subscriptions.get(j));
+                }
+            }
+            coaches.get(i).setCustomers(newCustomerList);
+        }
     }
 
 }

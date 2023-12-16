@@ -42,21 +42,8 @@ public class MembershipPlan {
     }
 
     public float getPrice() {
-        float finalPrice = calculateDiscount();
-        return finalPrice;
+        return calculateDiscount();
     }
-
-    // Prase Date -> turn date from String to Date
-//    public static Date parseDate(String InputDate) {
-//        try {
-//            SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
-//            return date.parse(InputDate);
-//        } catch (ParseException dateException) {
-//            throw new IllegalArgumentException("""
-//                                               Invalid date format!!
-//                                               Please, enter date in the format (dd-mmm-yyyy): """);
-//        }
-//    }
 
     private float calculateDiscount() {
         float discount = 0.10f;
@@ -85,8 +72,7 @@ public class MembershipPlan {
         System.out.println("Start date: " + SearchDate.getStringDate(startDate));
         System.out.println("Monthly plan: " + monthlyPlan + " per week");
         System.out.println("Months registered: " + monthRegisterd);
-        float finalPrice = calculateDiscount();
-        System.out.println("Price: " + finalPrice);
+        System.out.println("Price: " + calculateDiscount());
         System.out.println("End date: " + SearchDate.getStringDate(getEndDate()));
     }
 

@@ -9,13 +9,17 @@ public class Coach extends Person {
 
     Scanner input = new Scanner(System.in);
 
+    public void setCustomers(ArrayList<Customer> customers){
+        this.customers=customers;
+    }
+
     public void setWorkingHours(float workingHours) {
         this.workingHours = workingHours;
     }
 
-    public float getWorkingHours() {
-        return workingHours;
-    }
+//    public float getWorkingHours() {
+//        return workingHours;
+//    }
 
     public ArrayList<Customer> getCustomers() {
         return customers;

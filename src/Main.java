@@ -17,7 +17,12 @@ public class Main {
         int choice;
         char repeat;
 
+        ourGym.customerFile();
+        ourGym.coachFile();
         ourGym.subscriptionFile();
+        ourGym.subscriptionInCustomer();
+        ourGym.subscriptionInCoach();
+        ourGym.equipmentFile();
 
 //        for (int i=0;i<ourGym.getSubscriptions().size();i++){
 //            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
@@ -283,10 +288,10 @@ public class Main {
                 if (repeat!='y'&& repeat!='Y'){
                     continue;
                 }
-                else {
-                    ourGym.logOut();
-                    break;
-                }
+//                else {
+//                    ourGym.logOut();
+//                    break;
+//                }
             }
             else if (choice == 2) {// if the user is a coach
                 while (true) {
@@ -457,6 +462,7 @@ public class Main {
                                     3 --> To show your Membership Plan details.
                                     4 --> To show your In-Body details.
                                     5 --> To know the kilos that you need to be reduced.
+                                    6 --> To add new Subscription.
                                     -----------------------------------------------------""");
                                 choice = input.nextInt();
                                 if (choice == 1) { // To show your Coach information.
@@ -478,6 +484,9 @@ public class Main {
                                 }
                                 else if (choice == 5) { // To know the kilos that you need to be reduced.
                                     ourGym.getCustomers().get(customerIndex).displayKilos();
+                                }
+                                else if (choice == 6){
+                                    ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
                                 }
                                 else {
                                     invalidMsg();
@@ -534,12 +543,19 @@ public class Main {
                 continue;
             }
             else {
+                System.out.println("hhhhhhhh");
                 System.out.println("""
                 -----------------------------------
                 Thank You :)
                 -----------------------------------""");
-                break;
             }
+            System.out.println("++++++++++");
+            ourGym.writeToCustomerFile();
+            ourGym.writeToCoachFile();
+            ourGym.writeToEquipmentFile(ourGym.getEquipments());
+            ourGym.writeToSubsecriptionFile();
+            break;
         }
+
     }
 }

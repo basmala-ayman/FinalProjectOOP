@@ -17,6 +17,10 @@ public class Customer extends Person {
         this.subscriptions = subscriptions;
     }
 
+//    public void setSubscriptions(Subscription subscription) {
+//        this.subscriptions.add(subscription);
+//    }
+
     public void setInBodies(ArrayList<InBody> inBodies) {
         this.inBodies = inBodies;
     }
@@ -106,11 +110,9 @@ public class Customer extends Person {
     // Display the Subscription History of this Customer
     public void displaySubscriptionHistory() {
         for (int i = 0; i < subscriptions.size(); i++) {
-            System.out.println("Data of Customer's Subscription Plan number " + (i + 1) + " : ");
-            System.out.println("Starts at: " + SearchDate.getStringDate(subscriptions.get(i).getMembershipPlan().getStartDate()));
-            System.out.println("Number of months registered: " + subscriptions.get(i).getMembershipPlan().getMonthRegisterd());
-            System.out.println("Number of Days per Week " + subscriptions.get(i).getMembershipPlan().getMonthlyPlan());
-
+            System.out.println("Data of Customer's Subscription Plan number #" + (i + 1) + ": ");
+            System.out.println("----------------------------------------------------------");
+            subscriptions.get(i).displaySubscriptionDetails();
         }
     }
 
@@ -202,10 +204,6 @@ public class Customer extends Person {
     // Method to perform an in-body scan for a customer
     private boolean performInBodyScan(Date currentDate) {
 
-//        System.out.print("Enter Date: ");
-//        String stringCurrentDate = input.nextLine();
-//        Date currentDate= SearchDate.parseDate(stringCurrentDate);
-        // Check if it's been 30 days since the last in-body scan
         if (inBodies.isEmpty() || SearchDate.betweenDates(inBodies.get(inBodies.size() - 1).getInBodyDate(), currentDate) >= 30) {
             InBody inBody = new InBody();
             inBodies.add(inBody);
