@@ -17,9 +17,9 @@ public class Coach extends Person {
         this.workingHours = workingHours;
     }
 
-//    public float getWorkingHours() {
-//        return workingHours;
-//    }
+    public float getWorkingHours() {
+        return workingHours;
+    }
 
     public ArrayList<Customer> getCustomers() {
         return customers;

@@ -283,11 +283,7 @@ public class Main {
                 else {
                     continue;
                 }
-                System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
-                repeat = input.next().charAt(0);
-                if (repeat!='y'&& repeat!='Y'){
-                    continue;
-                }
+
 //                else {
 //                    ourGym.logOut();
 //                    break;
@@ -537,23 +533,21 @@ public class Main {
                 invalidMsg();
                 continue;
             }
-            System.out.print("Do you want to Exit from the Our Gym (Y/N)? ");
+            System.out.print("Do you want to Exit from Our Gym (Y/N)? ");
             repeat = input.next().charAt(0);
             if (repeat!='y'&& repeat!='Y'){
                 continue;
             }
             else {
-                System.out.println("hhhhhhhh");
                 System.out.println("""
                 -----------------------------------
                 Thank You :)
                 -----------------------------------""");
             }
-            System.out.println("++++++++++");
             ourGym.writeToCustomerFile();
             ourGym.writeToCoachFile();
             ourGym.writeToEquipmentFile(ourGym.getEquipments());
-            ourGym.writeToSubsecriptionFile();
+            ourGym.writeToSubscriptionFile();
             break;
         }
 

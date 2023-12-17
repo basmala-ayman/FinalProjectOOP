@@ -92,6 +92,8 @@ public class Admin {
         System.out.print("Enter the name of the new coach: ");
         input.nextLine();
         newCoach.setName(input.nextLine());
+        System.out.print("Enter The Coach Id: ");
+        newCoach.setID(input.nextInt());
         while (true) {
             System.out.print("The Email of the new coach: ");
             newCoach.setEmail(input.next());
@@ -149,6 +151,8 @@ public class Admin {
         System.out.print("Enter the name of the new customer: ");
         input.nextLine();
         newCustomer.setName(input.nextLine());
+        System.out.print("Enter The Customer Id: ");
+        newCustomer.setID(input.nextInt());
         while (true) {
             System.out.print("Enter the Email of the new customer: ");
             newCustomer.setEmail(input.next());
@@ -250,14 +254,18 @@ public class Admin {
             }
         }
         try {
+            customers.remove(customerIndex);
             System.out.println(customers.get(customerIndex).getName() + " is deleted.");
             System.out.println("------------------------------------------");
-            customers.remove(customerIndex);
+
         } catch (IndexOutOfBoundsException exp) {
+            System.out.println("Customers size "+customers.size());
             System.out.println("""
+                               
                                ------------
                                INVALID ID!!
                                ------------""");
+            System.out.println("Customers size "+customers.size());
         }
     }
 

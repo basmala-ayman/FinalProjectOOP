@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Gym {
@@ -63,7 +64,7 @@ public class Gym {
     // Files Functions
     public void subscriptionFile() throws IOException {
 
-        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//SubscriptionFile";
+        String file = "SubcriptionFile";
 
         BufferedReader reader = null;
         String line2 = "";
@@ -113,25 +114,34 @@ public class Gym {
         }
     }
 
-    public void writeToSubsecriptionFile() throws IOException {
-//        ArrayList<Subscription> subscriptions2 = new ArrayList<>();
-//        subscriptions2 = getSubscriptions();
+    public void writeToSubscriptionFile() throws IOException {
+        String file = "SubcriptionFile";
+        BufferedWriter writer = null;
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//SubscriptionFile"));
+            writer = new BufferedWriter(new FileWriter(file));
+            String line = "";
             for (Subscription s : subscriptions) {
-                writer.write(s.toString());
+
+                String[] row = new String[3];
+                row[0] =Integer.toString(s.getCoachId()) ;
+                row[1]=Integer.toString(s.getCustomerId());
+                row[2]=Objects.toString(s.getMembershipPlan());
+
+                line = String.join(",", row);
+                writer.write(line);
                 writer.newLine();
             }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            writer.close();
         }
     }
 
     public void customerFile() throws IOException {
 
-        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CustomerFile";
-
+        String file = "CustomerFile";
         BufferedReader reader = null;
         String line2 = "";
 
@@ -143,13 +153,13 @@ public class Gym {
 
                 Customer newCustomer = new Customer();
                 ArrayList<InBody> newInbodies = new ArrayList<>();
-
                 newCustomer.setEmail((row[0]));
-                newCustomer.setName((row[1]));
-                newCustomer.setPassword((row[2]));
-                newCustomer.setAddress((row[3]));
-                newCustomer.setPhoneNumber(row[4]);
-                newCustomer.setGender(row[5].charAt(0));
+                newCustomer.setID(Integer.parseInt((row[1])));
+                newCustomer.setName((row[2]));
+                newCustomer.setPassword((row[3]));
+                newCustomer.setAddress((row[4]));
+                newCustomer.setPhoneNumber(row[5]);
+                newCustomer.setGender(row[6].charAt(0));
 
 //                subscriptionInCustomer(newCustomer);
                 int count = 6;
@@ -185,19 +195,32 @@ public class Gym {
     }
 
     public void writeToCustomerFile()throws IOException {
-//        ArrayList<Customer>customers2=new ArrayList<>();
-//        customers2=getCustomers();
-        try
-        {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CustomerFile"));
-            for(Customer c:customers) {
-                writer.write(c.toString());
+        String file = "CustomerFile";
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(file));
+            String line = "";
+            for (Customer cu : customers) {
+
+                String[] row = new String[9];
+                row[0] = cu.getEmail();
+                row[1] = Integer.toString(cu.getID());
+                row[2] = cu.getName();
+                row[3] = cu.getPassword();
+                row[4] = cu.getAddress();
+                row[5] =cu.getPhoneNumber();
+                row[6]=(Character.toString(cu.getGender()));
+                row[7]= Objects.toString(cu.getSubscriptions());
+                row[8]= Objects.toString(cu.getInBodies());
+                line = String.join(",", row);
+                writer.write(line);
                 writer.newLine();
             }
-
-        }catch (Exception e)
-        {
+        }catch(Exception e){
             e.printStackTrace();
+        }
+        finally {
+            writer.close();
         }
 }
 
@@ -240,7 +263,7 @@ public class Gym {
     }
 
     public void writeToEquipmentFile(ArrayList<Equipment> equipments) throws IOException {
-        System.out.println(equipments.size());
+        //System.out.println(equipments.size());
         String file = "EquipmentFileTest";
         BufferedWriter writer = null;
         try {
@@ -268,7 +291,7 @@ public class Gym {
 
     public void coachFile() throws IOException {
 
-        String file = "C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CoachFile";
+        String file = "CoachFile";
 
         BufferedReader reader = null;
         String line2 = "";
@@ -280,12 +303,13 @@ public class Gym {
                 String[] row = line2.split(",");
                 Coach newCoach = new Coach();
                 newCoach.setEmail((row[0]));
-                newCoach.setName((row[1]));
-                newCoach.setPassword((row[2]));
-                newCoach.setAddress((row[3]));
-                newCoach.setPhoneNumber(row[4]);
-                newCoach.setGender(row[5].charAt(0));
-                newCoach.setWorkingHours(Float.parseFloat(row[6]));
+                newCoach.setID(Integer.parseInt(row[1]));
+                newCoach.setName((row[2]));
+                newCoach.setPassword((row[3]));
+                newCoach.setAddress((row[4]));
+                newCoach.setPhoneNumber(row[5]);
+                newCoach.setGender(row[6].charAt(0));
+                newCoach.setWorkingHours(Float.parseFloat(row[7]));
 
                 coaches.add(newCoach);
             }
@@ -299,20 +323,32 @@ public class Gym {
     }
 
     public void writeToCoachFile()throws IOException {
-//        ArrayList<Coach>coach2=new ArrayList<>();
-//        coach2=getCoaches();
-        try
-        {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C://Users//Bismil//OneDrive - Faculty of Computer and Information Sciences (Ain Shams University)//Desktop//FinalProjectOOP//src//CoachFile"));
-            for(    Coach co:coaches)
-            {
-                writer.write(co.toString());
+        //System.out.println(coaches.size());
+        String file = "CoachFile";
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(file));
+            String line = "";
+            for (Coach co : coaches) {
+
+                String[] row = new String[8];
+                row[0] = co.getEmail();
+                row[1] = Integer.toString(co.getID());
+                row[2] = co.getName();
+                row[3] = co.getPassword();
+                row[4] = co.getAddress();
+                row[5] =co.getPhoneNumber();
+                row[6]=(Character.toString(co.getGender()));
+                row[7]=Float.toString(co.getWorkingHours());
+                line = String.join(",", row);
+                writer.write(line);
                 writer.newLine();
             }
-
-        }catch (Exception e)
-        {
+        }catch(Exception e){
             e.printStackTrace();
+        }
+        finally {
+            writer.close();
         }
     }
 
@@ -385,7 +421,7 @@ public class Gym {
         String password;
         int customerIndex = -1, count = 0;
         System.out.println("""
-                Enter your information to Sign Up:
+                Enter your information to Log in:
                 -----------------------------------""");
         while (true) {
             System.out.print("Enter your ID: ");
@@ -453,7 +489,8 @@ public class Gym {
         while (true) {
             System.out.print("Enter your Email: ");
             newCoach.setEmail(input.next());
-
+            System.out.print("Enter an Id: ");
+            newCoach.setID(input.nextInt());
             if (newCoach.getEmail().indexOf('@') > 0) {
                 System.out.print("Enter your name: ");
                 input.nextLine();
@@ -623,6 +660,8 @@ public class Gym {
         while (true) {
             System.out.print("Enter your Email: ");
             newCustomer.setEmail(input.next());
+            System.out.print("Enter an Id: ");
+            newCustomer.setID(input.nextInt());
             input.nextLine();
             if (newCustomer.getEmail().indexOf('@') > 0) {
                 System.out.print("Enter your Name: ");
