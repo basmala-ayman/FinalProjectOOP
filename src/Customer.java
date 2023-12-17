@@ -205,8 +205,6 @@ public class Customer extends Person {
     private boolean performInBodyScan(Date currentDate) {
 
         if (inBodies.isEmpty() || SearchDate.betweenDates(inBodies.get(inBodies.size() - 1).getInBodyDate(), currentDate) >= 30) {
-            InBody inBody = new InBody();
-            inBodies.add(inBody);
             return true; // In-body scan successful
         } else {
             return false; // In-body scan not allowed
@@ -221,7 +219,6 @@ public class Customer extends Person {
         System.out.print("Enter your InBody Date in format (dd-MM-yyyy): ");
         input.nextLine();
         String startDate= input.nextLine();
-//        newInBody.setInBodyDate(SearchDate.parseDate(input.next()));
         Date date=SearchDate.parseDate(startDate);
         if(performInBodyScan(date)){
             float body;

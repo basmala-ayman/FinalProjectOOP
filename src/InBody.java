@@ -9,15 +9,18 @@ public class InBody {
     //Declare Variables
     private Date inBodyDate = new Date();
     private float height, totalWeight, bodyFatMass, minerals, totalBodyWater, protein;
+    private String[] units = new String[6];
     private char gender;
 
     // Setters
+
 
     public void setInBodyDate(Date inBodyDate) {
         this.inBodyDate = inBodyDate;
     }
 
     public void setHeight(float height, String unit) {
+        units[0]=unit;
         if (height <= 0) {
             throw new IllegalArgumentException("""
                     -------------------------------
@@ -51,6 +54,7 @@ public class InBody {
     }
 
     public void setTotalWeight(float totalWeight, String unit) {
+        units[1]=unit;
         if (totalWeight <= 0) {
             throw new IllegalArgumentException("""
                     -------------------------------------
@@ -80,6 +84,7 @@ public class InBody {
     }
 
     public void setBodyFatMass(float bodyFatMass, String unit) {
+        units[2]=unit;
         if (bodyFatMass <= 0) {
             throw new IllegalArgumentException("""
                     --------------------------------------
@@ -109,6 +114,7 @@ public class InBody {
     }
 
     public void setMinerals(float minerals, String unit) {
+        units[3]=unit;
         if (minerals <= 0) {
             throw new IllegalArgumentException("""
                     ---------------------------------
@@ -138,6 +144,7 @@ public class InBody {
     }
 
     public void setTotalBodyWater(float totalBodyWater, String unit) {
+        units[4]=unit;
         if (totalBodyWater <= 0) {
             throw new IllegalArgumentException("""
                     -----------------------------------------
@@ -167,6 +174,7 @@ public class InBody {
     }
 
     public void setProtein(float protein, String unit) {
+        units[5]=unit;
         if (protein <= 0) {
             throw new IllegalArgumentException("""
                     --------------------------------
@@ -227,6 +235,10 @@ public class InBody {
 
     public float getProtein() {
         return protein;
+    }
+
+    public String[] getUnits() {
+        return units;
     }
 
     public char getGender() {
