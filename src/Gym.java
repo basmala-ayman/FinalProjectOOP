@@ -835,7 +835,7 @@ public class Gym {
             writer = new BufferedWriter(new FileWriter(file));
             String line = "";
             for (Subscription s : subscriptions) {
-                writer.write(s.toString());
+//                writer.write(s.toString());
 
                 String[] row = new String[5];
                 row[0] =Integer.toString(s.getCoachId()) ;

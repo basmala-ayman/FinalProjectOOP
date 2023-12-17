@@ -446,7 +446,7 @@ public class Main {
                                         ------------------------""");
                                 ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
                                 ourGym.getCustomers().get(customerIndex).addInBody();
-//                                continue;
+                                continue;
                             }
                             if (customerIndex != -1 && !ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()) {
                             while (true) {
@@ -514,10 +514,10 @@ public class Main {
                             }
                                 break;
                             }
-                            else {
-                                ourGym.signUpCustomer();
-                                continue;
-                            }
+//                            else {
+//                                ourGym.signUpCustomer();
+//                                continue;
+//                            }
                         }
                     }
                     else if(choice==3) {
