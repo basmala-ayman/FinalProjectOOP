@@ -17,9 +17,9 @@ public class Main {
         int choice;
         char repeat;
 
+        ourGym.subscriptionFile();
         ourGym.customerFile();
         ourGym.coachFile();
-        ourGym.subscriptionFile();
         ourGym.subscriptionInCustomer();
         ourGym.subscriptionInCoach();
         ourGym.equipmentFile();
@@ -213,11 +213,11 @@ public class Main {
 //                            break;
                         }
                         else if (choice == 5) { // To display Customers Subscribed in a specific day or month.
-                            do {
+//                            do {
                                 ourGym.getAdmin().displayCustomersSubscribed(ourGym.getCustomers(), ourGym.getSubscriptions());
-                                System.out.println("Do you want to show customers in another date (y/n)?");
-                                repeat = input.next().charAt(0);
-                            } while (repeat == 'y' || repeat == 'Y');
+//                                System.out.println("Do you want to show customers in another date (y/n)?");
+//                                repeat = input.next().charAt(0);
+//                            } while (repeat == 'y' || repeat == 'Y');
                         }
                         else if (choice == 6) { // To display Customers of a specific Coach.
                             do {
@@ -337,6 +337,7 @@ public class Main {
                                     }
                                     else if (choice == 3) { //  To get all the details of a customer (Accroding his/her Name).
                                         do {
+                                            input.nextLine();
                                             ourGym.getCoaches().get(coachIndex).displayCustomerAccrodingName();
                                             System.out.print("Do you want to show the details of another customer (Y/N)? ");
                                             repeat = input.next().charAt(0);
@@ -378,7 +379,7 @@ public class Main {
                                         break;
                                     }
                                 }
-                                if (choice == 2){
+                                if (choice == 2||choice == 5){
                                     break;
                                 }
                             }
@@ -386,29 +387,6 @@ public class Main {
                                 ourGym.signUpCoach();
                                 continue;
                             }
-                        }
-                        do {
-                            System.out.println("""
-                                    Press:
-                                    ------
-                                    1 --> To do another operation.
-                                    2 --> To Log Out.
-                                    -------------------------------""");
-                            choice = input.nextInt();
-                            if (choice == 1) { // To do another operation.
-                                break;
-                            }
-                            else if (choice == 2) { // To Log Out.
-                                ourGym.logOut();
-                                break;
-                            }
-                            else {
-                                invalidMsg();
-                                continue;
-                            }
-                        } while (true);
-                        if (choice==2){
-                            break;
                         }
                     }
                 }
@@ -452,6 +430,7 @@ public class Main {
                                     4 --> To show your In-Body details.
                                     5 --> To know the kilos that you need to be reduced.
                                     6 --> To add new Subscription.
+                                    7 --> To add new In-Body.
                                     -----------------------------------------------------""");
                                 choice = input.nextInt();
                                 if (choice == 1) { // To show your Coach information.
@@ -461,6 +440,7 @@ public class Main {
                                     ourGym.displayEquipment();
                                 }
                                 else if (choice == 3) { // To show your last Membership Plan details.
+//                                    input.nextLine();
                                     ourGym.getCustomers().get(customerIndex).displayMembershipPlan();
                                 }
                                 else if (choice == 4) { //  To show your In-Body details at a specific date.
@@ -476,6 +456,9 @@ public class Main {
                                 }
                                 else if (choice == 6){
                                     ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
+                                }
+                                else if(choice == 7){
+                                    ourGym.getCustomers().get(customerIndex).addInBody();
                                 }
                                 else {
                                     invalidMsg();

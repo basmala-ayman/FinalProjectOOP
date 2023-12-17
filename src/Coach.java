@@ -46,7 +46,7 @@ public class Coach extends Person {
         String name;
         int customerIndex = -1;
         System.out.print("Enter the Customer's Name to show his/her information: ");
-        input.nextLine();
+//        input.nextLine();
         name = input.nextLine();
 
         for (int i = 0; i < customers.size(); i++) {

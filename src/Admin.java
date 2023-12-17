@@ -1,4 +1,4 @@
-//import com.sun.source.tree.ContinueTree;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -565,7 +565,7 @@ public class Admin {
                     for (int j = 0; j < customers.get(i).getSubscriptions().size(); j++) {
                         if (SearchDate.getDay(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getDay(SearchDate.parseDate(date)) && SearchDate.getMonth(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getMonth(SearchDate.parseDate(date)) && SearchDate.getYear(customers.get(i).getSubscriptions().get(j).getMembershipPlan().getStartDate()) == SearchDate.getYear(SearchDate.parseDate(date))) {
                             count++;
-                            System.out.println(count + ") " + customers.get(i).getName());
+                            System.out.println((j+1) + ") " + customers.get(i).getName());
                         }
                     }
                 }

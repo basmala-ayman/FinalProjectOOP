@@ -61,6 +61,7 @@ public class Gym {
                 String[] row = line2.split(",");
                 Subscription newSubscription=new Subscription();
                 MembershipPlan newMembershipPlan= new MembershipPlan();
+
                 newSubscription.setCoachId(Integer.parseInt(row[0]));
                 newSubscription.setCustomerId(Integer.parseInt(row[1]));
 
@@ -688,13 +689,13 @@ public class Gym {
         public void subscriptionInCoach(){
         for (int i = 0; i<coaches.size();i++){
             ArrayList<Customer> newCustomerList = new ArrayList<>();
-//            ArrayList <Subscription> newSubscriptionList = new ArrayList<>();
             for (int j = 0; j<subscriptions.size();j++) {
                 if (subscriptions.get(j).getCoachId() == coaches.get(i).getID()) {
                     for (int k = 0; k<customers.size();k++){
                         if(subscriptions.get(j).getCustomerId()==customers.get(k).getID()){
                             newCustomerList.add(customers.get(k));
                         }
+//                        break;
                     }
 //                    newSubscriptionList.add(subscriptions.get(j));
                 }
