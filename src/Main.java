@@ -24,13 +24,6 @@ public class Main {
         ourGym.subscriptionInCoach();
         ourGym.equipmentFile();
 
-//        for (int i=0;i<ourGym.getSubscriptions().size();i++){
-//            System.out.println(ourGym.getSubscriptions().get(i).getCoachId()+" "
-//                    +ourGym.getSubscriptions().get(i).getCustomerId() +" "
-//                    +ourGym.getSubscriptions().get(i).getMembershipPlan().getMonthlyPlan() +" "
-//            +ourGym.getSubscriptions().get(i).getMembershipPlan().getMonthRegisterd());
-//        }
-
         while (true) {
             System.out.println("\t\tWelcome to Our GYM");
             System.out.println("\t--------------------------");
@@ -446,7 +439,7 @@ public class Main {
                                         ------------------------""");
                                 ourGym.getCustomers().get(customerIndex).addSubscription(ourGym.getCoaches());
                                 ourGym.getCustomers().get(customerIndex).addInBody();
-                                continue;
+                               continue;
                             }
                             if (customerIndex != -1 && !ourGym.getCustomers().get(customerIndex).getSubscriptions().isEmpty()) {
                             while (true) {

@@ -1,6 +1,4 @@
 
-
-//import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -16,10 +14,6 @@ public class Customer extends Person {
     public void setSubscriptions(ArrayList<Subscription> subscriptions) {
         this.subscriptions = subscriptions;
     }
-
-//    public void setSubscriptions(Subscription subscription) {
-//        this.subscriptions.add(subscription);
-//    }
 
     public void setInBodies(ArrayList<InBody> inBodies) {
         this.inBodies = inBodies;

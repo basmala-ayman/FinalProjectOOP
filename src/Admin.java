@@ -9,12 +9,6 @@ public class Admin {
     private final String PASSWORD= "admin";
     Scanner input = new Scanner(System.in);
 
-    // Constractur
-//    public Admin(String USERNAME, String PASSWORD) {
-//        this.USERNAME = USERNAME;
-//        this.PASSWORD = PASSWORD;
-//    }
-
     // Log-In Function of Admin
     public boolean logIn() {
         String username, password;
@@ -66,6 +60,7 @@ public class Admin {
     }
 
     // Add Functions to check Sign Up Operation.
+    //Coach Email must be special
     public boolean add(Coach newCoach, ArrayList<Coach> coaches) {
         for (int i = 0; i < coaches.size(); i++) {
             if (newCoach.getEmail().equals(coaches.get(i).getEmail())) {
@@ -74,7 +69,7 @@ public class Admin {
         }
         return true;
     }
-
+    //Customer Email must be special
     public boolean add(Customer newCustomer, ArrayList<Customer> customers) {
         for (int i = 0; i < customers.size(); i++) {
             if (newCustomer.getEmail().equals(customers.get(i).getEmail())) {
@@ -85,6 +80,8 @@ public class Admin {
     }
 
     // Add Functions
+
+    //add coach info
     public void addCoach(ArrayList<Coach> coaches) {
 
         Coach newCoach = new Coach();
@@ -143,7 +140,7 @@ public class Admin {
             }
         }
     }
-
+//add customer info
     public void addCustomer(ArrayList<Customer> customers) {
 
         Customer newCustomer = new Customer();
@@ -219,6 +216,7 @@ public class Admin {
     }
 
     // Delete Functions
+    //delete with .remove
     public void deleteCoach(ArrayList<Coach> coaches) {
         int coachId;
         System.out.print("Enter the Coach ID you want to delete: ");
@@ -265,7 +263,6 @@ public class Admin {
                                ------------
                                INVALID ID!!
                                ------------""");
-            System.out.println("Customers size "+customers.size());
         }
     }
 
@@ -522,7 +519,7 @@ public class Admin {
 
         System.out.print("Enter the Customer ID to show his/her subscription history: ");
         customerId = input.nextInt();
-      if(!customers.isEmpty()){
+      if(customers.size()!=0){
         for (int i = 0; i < customers.size(); i++) {
             if (customers.get(i).getID() == customerId) {
                 customerIndex = i;
@@ -530,7 +527,6 @@ public class Admin {
             }
         }
         try {
-
             customers.get(customerIndex).displaySubscriptionHistory();
         } catch (IndexOutOfBoundsException exp) {
             System.out.println("""
@@ -538,8 +534,7 @@ public class Admin {
                     INVALID ID!!
                     ------------""");
         }
-    }
-      else {
+    }  else {
           System.out.println("No added customers yet!");
       }
     }

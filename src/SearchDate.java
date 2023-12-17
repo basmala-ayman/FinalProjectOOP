@@ -35,37 +35,7 @@ public class SearchDate {
         }
     }
 
-//    public static void searchDay(Date[] dateArr, int searchDay) {
-////        System.out.println("Dates with day " + searchDay + ":");
-//        for (Date date : dateArr) {
-//            int dayOfMonth = getDay(date);
-//
-//            if (dayOfMonth == searchDay) {
-//                System.out.println(date);
-//            }
-//        }
-//    }
 
-//    public static Boolean searchMonth(Date date, int searchmonth) {
-//
-//        int Month = SearchDate.getMonth(date);
-//
-//        if (Month == searchmonth) {
-//            return true;
-//        }
-//        return null;
-//    }
-
-    //    public static void searchMonth(Date[] dateArr, int searchmonth) {
-////        System.out.println("Dates with month " + searchmonth + ":");
-//        for (Date date : dateArr) {
-//            int Month = getMonth(date);
-//
-//            if (Month == searchmonth) {
-//                System.out.println(date);
-//            }
-//        }
-//    }
     public static int getDay(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
