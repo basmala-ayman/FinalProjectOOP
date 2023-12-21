@@ -252,9 +252,9 @@ public class Admin {
             }
         }
         try {
-            customers.remove(customerIndex);
             System.out.println(customers.get(customerIndex).getName() + " is deleted.");
             System.out.println("------------------------------------------");
+            customers.remove(customerIndex);
 
         } catch (IndexOutOfBoundsException exp) {
             System.out.println("Customers size "+customers.size());
